@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <io.virtualapp.widgets.DragSelectRecyclerView
+        android:id="@+id/select_app_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        app:dsrv_autoScrollEnabled="false" />
+
+    <ProgressBar
+        android:id="@+id/select_app_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <Button
+        android:textColor="@android:color/white"
+        android:id="@+id/select_app_install_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="15dp"
+        android:background="@drawable/sel_clone_app_btn"
+        tools:text="Install to SandBox (1)"
+        android:textSize="17sp"
+        tools:ignore="HardcodedText" />
+</FrameLayout>

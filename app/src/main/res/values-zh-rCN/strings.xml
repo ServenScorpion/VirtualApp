@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">Scorpion</string>
+    <string name="desktop">桌面</string>
+    <string name="add_app">添加App</string>
+    <string name="preparing">正在打开App，请稍等…</string>
+    <string name="delete">删除</string>
+    <string name="create_shortcut">创建快捷方式</string>
+    <string name="new_user">新的用户</string>
+    <string name="enable">开启</string>
+    <string name="save">保存</string>
+    <string name="save_success">保存成功!</string>
+    <string name="manufacturer">制造商</string>
+    <string name="wait">请稍后…</string>
+    <string name="brand">品牌</string>
+    <string name="device">机型</string>
+    <string name="fake_device_info">伪造设备信息</string>
+    <string name="wifi_status">Wifi状态</string>
+    <string name="config_device_info">配置设备信息</string>
+    <string name="about">关于</string>
+    <string name="clone_apps">克隆App</string>
+    <string name="menu_accounts">账号管理</string>
+    <string name="virtual_location">虚拟定位</string>
+    <string name="external_storage">外置存储</string>
+    <string name="install_d">安装 (%d)</string>
+    <string name="install_too_much_once_time">不能一次性安装超过9个App!</string>
+    <string name="tip">提示</string>
+    <string name="text_install_gms">是否启用Google Service支持？</string>
+    <string name="choose_user_title">请选择一个用户</string>
+    <string name="real_location">真实位置</string>
+    <string name="about_title">关于我们</string>
+<!--    <string name="about_msg">济宁市罗盒网络科技有限公司出品\n反馈问题请联系：zl@aluohe.com</string>-->
+    <string name="about_msg">反馈问题请联系：倜傥哥</string>
+    <string name="tip_no_app">请先添加一个App</string>
+    <string name="activity_choose_location">地点选择</string>
+    <string name="activity_location_settings">虚拟地理位置</string>
+    <string name="clear">清除</string>
+    <string name="search">搜索</string>
+    <string name="label_lat">经度:</string>
+    <string name="label_lng">纬度:</string>
+    <string name="unknown_location">未知位置</string>
+    <string name="no_mock">未模拟</string>
+    <string name="tip_input_keywords">搜索地点</string>
+    <string name="tip_no_find_points">没有找到相关地点</string>
+    <string name="mocking">正在模拟位置</string>
+    <string name="tip_start_location">开始定位</string>
+    <string name="tip_find_location">正在定位</string>
+    <string name="title_input_location">手动输入位置</string>
+    <string name="title_input_wifi_info">输入Wifi信息</string>
+    <string name="title_input_activate">激活</string>
+    <string name="title_input_activate_code">激活码</string>
+    <string name="title_input_wifi_ssid">Wifi 名字</string>
+    <string name="title_input_wifi_mac">mac 地址</string>
+    <string name="tip_search_keyword">搜索非当前城市区域，请用:“城市名@关键词”</string>
+    <string name="hint_lat">经度</string>
+    <string name="hint_lng">纬度</string>
+    <string name="input_loc_error">输入内容有误，请检查格式：纬度-90~90，经度-180~180</string>
+    <string name="tip_delete">删除应用</string>
+    <string name="text_delete_app" formatted="false">是否移除应用 %s ?</string>
+    <string name="menu_gms">google框架</string>
+    <string name="title_app_device">独立设置</string>
+    <string name="title_user_device">全局设置</string>
+    <string name="menu_mock_phone">机型模拟</string>
+    <string name="menu_mock_wifi">Wifi模拟</string>
+    <string name="mock_none">真机信息</string>
+    <string name="mock_device">模拟中</string>
+    <string name="dlg_reset_device">重置为真实手机信息</string>
+    <string name="mock_global">全局模拟中</string>
+    <string name="permission_tip_title">重要提示：</string>
+    <string name="permission_tips_content">%1$s 不支持动态申请权限, 您必须提前赋予它需要的所有必要权限, 请在它接下来的权限请求中全部选择允许，否则它将无法运行。</string>
+    <string name="permission_tips_confirm">我知道了</string>
+    <string name="permission_denied_tips_content">%1$s 没有获取到某些运行必须要使用的权限；它不支持动态申请权限. 请去您设备的系统权限管理中赋予本应用必要权限。</string>
+    <string name="permission_denied_ok">启动失败</string>
+    <string name="start_app_failed">启动 %1$s 失败</string>
+    <string name="any_apps">部分应用</string>
+    <string name="tip_add_apps">正在添加中</string>
+    <string-array name="weeks">
+        <item>周日</item>
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+    </string-array>
+    <string name="kill_all_app">加速</string>
+    <string name="app_settings">App设置</string>
+    <string name="clean_data">清除数据</string>
+</resources>

@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        externalNativeBuild {
+            cmake {
+                arguments "-DCMAKE_BUILD_TYPE=Release"
+            }
+        }
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+/*这个是将64位 so 复制到 armeabi-v7a  下面*/
+gradle.taskGraph.afterTask { task ->
+    FileCollection fileCollection = task.getOutputs().getFiles();
+    //def files = fileCollection.getFiles();
+    FileTree fileTree = fileCollection.getAsFileTree();
+    Set<File> files = fileTree.getFiles();
+    for (File file:files){
+        String filePath64 = file.getAbsolutePath();
+        if (filePath64.endsWith(".so") && filePath64.contains("arm64-v8a")){
+            String filePath32 = filePath64.replace("arm64-v8a","armeabi-v7a");
+            def commandLine = "cp -rf " + filePath64 +" " +filePath32
+            def cmdResult =commandLine.execute().text.trim();
+            println("======= 64 : " + filePath64 +"   32 : "+filePath32)
+        }
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':annotation')
+}

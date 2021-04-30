@@ -1,0 +1,17 @@
+ext {
+
+    PACKAGE_NAME_32BIT = 'com.serven.scorpion'//com.serven.scorpion  io.busniess.va
+    PACKAGE_NAME_ARM64 = 'com.serven.scorpion.bit64'//io.virtualapp.addon.arm64
+    PERMISSION_PREFIX = PACKAGE_NAME_32BIT
+    AUTHORITY64_PREFIX = PACKAGE_NAME_ARM64
+
+    VA_VERSION_64 = false
+
+    VERSION = '3.3.0'
+    VERSION_CODE = 180080914
+
+    STORE_FILE = '../security/myKey.jks'
+    STORE_PASSWORD = 'z742978469'
+    KEY_ALIAS = 'key0'
+    KEY_PASSWORD = 'z742978469'
+}

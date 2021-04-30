@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="io.virtualapp">
+    <!--外部存储的写权限-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!--外部存储的读权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <!-- SandHook -->
+    <uses-sdk tools:overrideLibrary="com.swift.sandhook.lib, com.swift.sandhook.xposedcompat"/>
+
+    <uses-permission android:name="${PACKAGE_NAME_32BIT}.permission.SAFE_ACCESS" />
+    <!-- 通话记录 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <!-- call phone -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <!-- sms-->
+    <uses-permission android:name="android.permission.RECEIVE_MMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_WAP_PUSH" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.WRITE_SMS" />
+    <!-- google app start -->
+    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH" />
+    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.OTHER_SERVICES" />
+    <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.YouTubeUser" />
+    <!-- google app end -->
+    <application
+        android:resizeableActivity="true"
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning,HardcodedDebugMode">
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="4HPBZ-2QWC6-H47SR-M6PZY-MTZB5-N2F4F" />
+
+        <activity
+            android:name=".splash.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".home.HomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme" />
+
+        <activity
+            android:name=".home.ListAppActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme" />
+
+        <activity
+            android:name=".home.location.LocationSettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme" />
+        <activity
+            android:name=".home.location.ChooseLocationActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme" />
+
+        <activity
+            android:name=".home.device.DeviceDetailActiivty"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme" />
+        <activity
+            android:name=".home.device.DeviceSettingsActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/UITheme" />
+
+        <activity
+            android:name=".home.PermissionRequestActivity"
+            android:launchMode="singleInstance"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".home.BackHomeActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".home.AppSettingActivity"
+            android:theme="@style/UITheme.HasActionBar" />
+
+        <activity android:name=".home.XposedManager.XposedManagerActivity"
+            android:label="Xposed Manager"
+            android:theme="@style/UITheme" />
+        <!-- va的x进程处理 -->
+        <receiver
+            android:name=".PackageReceiver"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+
+        <!--<provider
+            android:name=".sandxposed.SandHookConfigProvider"
+            android:authorities="io.virtualapp.sandvxposed:x"
+            android:exported="false"
+            android:process=":x" />-->
+    </application>
+
+
+</manifest>

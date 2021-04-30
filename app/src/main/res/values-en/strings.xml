@@ -1,0 +1,89 @@
+<resources>
+    <string name="app_name">Scorpion</string>
+    <string name="wait">Please wait…</string>
+    <string name="desktop">Desktop</string>
+    <string name="add_app">Add App</string>
+    <string name="preparing">Opening the app…</string>
+    <string name="delete">Delete</string>
+    <string name="create_shortcut">Create shortcut</string>
+    <string name="app_settings">App Settings</string>
+    <string name="new_user">New User</string>
+    <string name="enable">Enable</string>
+    <string name="save">Save</string>
+    <string name="save_success">Save success!</string>
+    <string name="manufacturer">Manufacturer</string>
+    <string name="brand">Brand</string>
+    <string name="device">Device</string>
+    <string name="fake_device_info">Fake Device Info</string>
+    <string name="wifi_status">Wifi Status</string>
+    <string name="config_device_info">Device Info</string>
+    <string name="about">About</string>
+    <string name="clone_apps">Clone Apps</string>
+    <string name="external_storage">External Storage</string>
+    <string name="install_d">Install (%d)</string>
+    <string name="install_too_much_once_time">No more then 9 apps can be chosen at a time!</string>
+    <string name="menu_accounts">Accounts</string>
+    <string name="tip">Hi</string>
+    <string name="virtual_location">Virtual Location</string>
+    <string name="text_install_gms">We found that your device has been installed the Google service, whether you need to install them?</string>
+    <string name="choose_user_title">Please select an user</string>
+    <string name="real_location">real location</string>
+    <string name="about_title">About me</string>
+    <!--    <string name="about_msg">济宁市罗盒网络科技有限公司出品\nFeedback problem：zl@aluohe.com</string>-->
+    <string name="about_msg">反馈问题请联系：倜傥哥</string>
+    <string name="tip_no_app">Please add a App</string>
+    <string name="activity_choose_location">Choose Location</string>
+    <string name="activity_location_settings">Virtual Location Settings</string>
+    <string name="clear">Clear</string>
+    <string name="search">Search</string>
+    <string name="label_lat">Latitude:</string>
+    <string name="label_lng">Longitude:</string>
+    <string name="unknown_location">unknown address</string>
+    <string name="no_mock">Real location</string>
+    <string name="tip_input_keywords">find other place</string>
+    <string name="tip_no_find_points">no find map point</string>
+    <string name="mocking">is mock location</string>
+    <string name="tip_start_location">start locating</string>
+    <string name="tip_find_location">is locating</string>
+    <string name="title_input_location">Input position</string>
+    <string name="title_input_wifi_info">Input Wifi Info</string>
+    <string name="title_input_activate">Activate</string>
+    <string name="title_input_activate_code">Activate Code</string>
+    <string name="title_input_wifi_ssid">Wifi name</string>
+    <string name="title_input_wifi_mac">MAC address</string>
+    <string name="tip_search_keyword">Search for areas that are not present in the city,please use:"city@keyword"</string>
+    <string name="hint_lat">Latitude</string>
+    <string name="hint_lng">Longitude</string>
+    <string name="input_loc_error">The input content is wrong, please check the format：Latitude-90~90，Longitude-180~180</string>
+    <string name="tip_delete">Delete app</string>
+    <string name="text_delete_app" formatted="false">Do you want to delete %s?</string>
+    <string name="menu_gms">Google Framework</string>
+    <string name="kill_all_app">Speed up</string>
+    <string name="title_app_device">App Settings</string>
+    <string name="title_user_device">Global Settings</string>
+    <string name="menu_mock_phone">Mock phone</string>
+    <string name="menu_mock_wifi">Mock Wifi</string>
+    <string name="mock_none">no mock</string>
+    <string name="mock_device">mocking</string>
+    <string name="dlg_reset_device">reset mock phone info</string>
+    <string name="mock_global">global mocking</string>
+    <string name="permission_tip_title">Important Tips:</string>
+    <string name="permission_tips_content">%1$s  doesn\'t support runtime permission, you must give permissions it needs in advance, please allow all the permission it will request in next step, otherwise it may not work properly.</string>
+    <string name="permission_tips_confirm">OK, I know.</string>
+    <string name="permission_denied_tips_content">App: %1$s doesn\'t grant necessary permission, it cann\'t be launched. Please go to your device\'s permission management and give it permissions.</string>
+    <string name="permission_denied_ok">Launch failed.</string>
+    <string name="start_app_failed">can\'t start %1$s </string>
+    <string name="any_apps">Apps</string>
+    <string name="tip_add_apps">Please wait for add app</string>
+    <string name="clean_data">Clean Data</string>
+    <string-array name="weeks">
+        <item>Sun</item>
+        <item>Mon</item>
+        <item>Tue</item>
+        <item>Wed</item>
+        <item>Thu</item>
+        <item>Fri</item>
+        <item>Sat</item>
+    </string-array>
+
+</resources>
