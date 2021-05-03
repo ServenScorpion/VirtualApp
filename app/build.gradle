@@ -125,8 +125,8 @@ dependencies {
 
 
     implementation 'com.zhy:okhttputils:2.6.2'
-    //implementation(name:'lib', ext:'aar')
-    implementation project(path: ':lib')
+    implementation(name:'lib', ext:'aar')
+    //implementation project(path: ':lib')
     implementation project(path: ':xposedcompat')
     implementation project(path: ':hooklib')
 
