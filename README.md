@@ -12,3 +12,9 @@ Wechat : serven_scorpion <br>
 
 
 
+
+
+编译 FAQ ：
+     windows 遇到
+     def cmdResult =commandLine.execute().text.trim();  编译失败的情况，请注释掉就可以了，这个是windows 上不支持linux 命令
+    
