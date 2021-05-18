@@ -43,8 +43,8 @@ gradle.taskGraph.afterTask { task ->
         if (filePath64.endsWith(".so") && filePath64.contains("arm64-v8a")){
             String filePath32 = filePath64.replace("arm64-v8a","armeabi-v7a");
             def commandLine = "cp -rf " + filePath64 +" " +filePath32
-            def cmdResult =commandLine.execute().text.trim();
-            println("======= 64 : " + filePath64 +"   32 : "+filePath32)
+            //def cmdResult =commandLine.execute().text.trim();  // 这里如果是windows 需要注释，如果是linux 的话可以直接打开，方便手动操作
+            //println("======= 64 : " + filePath64 +"   32 : "+filePath32)
         }
     }
 }
