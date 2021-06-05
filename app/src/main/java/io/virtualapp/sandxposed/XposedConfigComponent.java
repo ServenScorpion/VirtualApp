@@ -1,7 +1,8 @@
 package io.virtualapp.sandxposed;
 
-import com.lody.virtual.sandxposed.XposedConfig;
-import com.lody.virtual.sandxposed.XposedModuleProfile;
+
+import com.scorpion.sandxposed.XposedConfig;
+import com.scorpion.sandxposed.XposedModuleProfile;
 
 public class XposedConfigComponent implements XposedConfig {
     @Override

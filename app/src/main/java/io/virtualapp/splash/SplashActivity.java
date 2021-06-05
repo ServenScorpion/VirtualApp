@@ -3,6 +3,7 @@ package io.virtualapp.splash;
 import android.os.Bundle;
 import android.view.WindowManager;
 
+
 import com.lody.virtual.client.core.VirtualCore;
 
 import io.virtualapp.R;

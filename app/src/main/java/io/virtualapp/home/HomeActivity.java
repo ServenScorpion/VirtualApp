@@ -39,6 +39,7 @@ import com.lody.virtual.client.core.SettingConfig;
 import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.client.ipc.VActivityManager;
 import com.lody.virtual.oem.OemPermissionHelper;
+import com.scorpion.splash.LoadingActivity;
 import com.scorpion.utils.SPTools;
 
 import java.io.File;
@@ -562,7 +563,7 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView {
             if (resultCode == RESULT_OK) {
                 String packageName = data.getStringExtra("pkg");
                 int userId = data.getIntExtra("user_id", -1);
-                VActivityManager.get().launchApp(userId, packageName);
+                LoadingActivity.launch(this,packageName,userId);
             }
         }
     }

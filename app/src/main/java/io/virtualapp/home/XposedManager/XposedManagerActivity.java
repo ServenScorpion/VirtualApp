@@ -5,7 +5,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
-import com.lody.virtual.sandxposed.XposedConfig;
 import java.util.ArrayList;
 import java.util.List;
 import io.virtualapp.R;

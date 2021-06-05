@@ -1,7 +1,6 @@
 package io.virtualapp.home.adapters;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -10,10 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.android.dx.Label;
-import com.lody.virtual.client.core.VirtualCore;
-import com.lody.virtual.server.pm.PackageSetting;
-import com.scorpion.ResponseProgram;
 import com.scorpion.utils.InstallTools;
 
 import java.io.File;

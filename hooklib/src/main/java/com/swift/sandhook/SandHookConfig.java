@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Process;
 
-import dalvik.system.VMRuntime;
 
 public class SandHookConfig {
 
@@ -15,7 +14,7 @@ public class SandHookConfig {
     public volatile static boolean compiler = SDK_INT < 29;
     public volatile static ClassLoader initClassLoader;
     public volatile static int curUser = 0;
-    public volatile static boolean delayHook = true;
+    public volatile static boolean delayHook = false;//是否hook native
 
     public volatile static String libSandHookPath;
 
@@ -51,7 +50,7 @@ public class SandHookConfig {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             return Process.is64Bit();
         }
-        return VMRuntime.is64Bit.call(VMRuntime.getRuntime.call());
+        return false;//VMRuntime.is64Bit.call(VMRuntime.getRuntime.call());
     }
 
     public interface LibLoader {

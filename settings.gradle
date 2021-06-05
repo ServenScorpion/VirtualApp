@@ -1,6 +1,5 @@
 include ':xposedcompat'
 include ':hooklib'
 include ':annotation'
-include ':basegenerator'
-include ':lib', ':app'
-include ':lib64',  ':test-64bit', 'app-arm64'
+include ':lib-native'
+include ':app'

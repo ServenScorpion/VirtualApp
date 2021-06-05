@@ -1,12 +1,10 @@
 apply plugin: 'com.android.application'
 
-
-
 android {
     compileSdkVersion 26
     buildToolsVersion '29.0.3'
 
-        signingConfigs {
+    signingConfigs {
         release {
             storeFile file(rootProject.ext.STORE_FILE)
             storePassword rootProject.ext.STORE_PASSWORD
@@ -24,8 +22,8 @@ android {
         applicationId rootProject.ext.PACKAGE_NAME_32BIT
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 180080814
-        versionName "2.2.3"
+        versionCode rootProject.ext.VERSION_CODE
+        versionName rootProject.ext.VERSION
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
@@ -86,19 +84,16 @@ android {
     }
 }
 
+
 repositories {
     flatDir {
         dirs 'sdk'
     }
 }
 
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-
-    //compile('com.android.support:appcompat-v7:18.0.+')
-    //compile('com.android.support:support-v4:13.0.0')
-    implementation('com.google.android.gms:play-services:3.2.25')
-
     //Android Lib
     implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.android.support:percent:26.1.0'
@@ -106,31 +101,29 @@ dependencies {
     implementation 'com.android.support:recyclerview-v7:26.1.0'
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support:cardview-v7:26.1.0'
-
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
-
     //Lifecycles, LiveData, and ViewModel
-    implementation "android.arch.lifecycle:runtime:1.1.1"
-    implementation "android.arch.lifecycle:extensions:1.1.1"
+    implementation 'android.arch.lifecycle:runtime:1.1.1'
+    implementation 'android.arch.lifecycle:extensions:1.1.1'
     annotationProcessor "android.arch.lifecycle:compiler:1.1.1"
     //Room
-    implementation "android.arch.persistence.room:runtime:1.1.1"
+    implementation 'android.arch.persistence.room:runtime:1.1.1'
     annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
-
-    //Promise Support 类似rxjava 异步操作
     implementation 'org.jdeferred:jdeferred-android-aar:1.2.4'
-    // ThirdParty 用于验证是否第一次的标记 底层实现：sharedpreference
-    //implementation 'com.jonathanfinerty.once:once:1.0.3'
     implementation 'com.github.megatronking.stringfog:xor:1.1.0'
-
-
     implementation 'com.zhy:okhttputils:2.6.2'
+
+
+    implementation project(':xposedcompat')
+    implementation project(':hooklib')
+
     implementation(name:'lib', ext:'aar')
-    //implementation project(path: ':lib')
-    implementation project(path: ':xposedcompat')
-    implementation project(path: ':hooklib')
+    implementation(name:'libcommon', ext:'aar')
 
     implementation 'org.jdeferred:jdeferred-android-aar:1.2.4'
     implementation 'com.squareup.okhttp3:okhttp:3.4.1'
     implementation 'com.zhy:okhttputils:2.6.2'
+
+
+    implementation files('libs/gson-2.3.1.jar')
 }

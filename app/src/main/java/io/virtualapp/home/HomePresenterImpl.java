@@ -26,6 +26,7 @@ import com.lody.virtual.open.MultiAppHelper;
 import com.lody.virtual.remote.InstallResult;
 import com.lody.virtual.remote.InstalledAppInfo;
 import com.lody.virtual.server.bit64.V64BitHelper;
+import com.scorpion.splash.LoadingActivity;
 
 import java.io.File;
 import java.io.IOException;
@@ -200,7 +201,7 @@ class HomePresenterImpl implements HomeContract.HomePresenter {
     private void launchApp(int userId, String packageName) {
         boolean current64BitProcess = VirtualCore.get().current64BitProcess();
 
-        VLog.e(TAG,"current64BitProcess :"+current64BitProcess);
+/*        VLog.e(TAG,"current64BitProcess :"+current64BitProcess);
         if (!current64BitProcess) {
             if (VirtualCore.get().isRun64BitProcess(packageName)) {
                 if (!VirtualCore.get().is64BitEngineInstalled()) {
@@ -213,8 +214,8 @@ class HomePresenterImpl implements HomeContract.HomePresenter {
                     return;
                 }
             }
-        }
-        VActivityManager.get().launchApp(userId, packageName);
+        }*/
+        LoadingActivity.launch(mActivity,packageName,userId);
     }
 
 
@@ -233,10 +234,13 @@ class HomePresenterImpl implements HomeContract.HomePresenter {
         AddResult addResult = new AddResult();
         ProgressDialog dialog = ProgressDialog.show(mActivity, null, mActivity.getString(R.string.tip_add_apps));
         VUiKit.defer().when(() -> {
+            //这里只是去容器里面查询一次看看该应用是否安装
             InstalledAppInfo installedAppInfo = VirtualCore.get().getInstalledAppInfo(info.packageName, 0);
             if (installedAppInfo != null) {
+                //如果应用安装过那么这里就是多开
                 addResult.userId = MultiAppHelper.installExistedPackage(installedAppInfo);
             } else {
+                //如果没有安装过,那么这里是首次安装
                 InstallResult res = mRepo.addVirtualApp(info);
                 if (!res.isSuccess) {
                     throw new IllegalStateException();

@@ -28,7 +28,7 @@
     <string name="choose_user_title">请选择一个用户</string>
     <string name="real_location">真实位置</string>
     <string name="about_title">关于我们</string>
-<!--    <string name="about_msg">济宁市罗盒网络科技有限公司出品\n反馈问题请联系：zl@aluohe.com</string>-->
+
     <string name="about_msg">反馈问题请联系：倜傥哥</string>
     <string name="tip_no_app">请先添加一个App</string>
     <string name="activity_choose_location">地点选择</string>
@@ -65,11 +65,7 @@
     <string name="mock_device">模拟中</string>
     <string name="dlg_reset_device">重置为真实手机信息</string>
     <string name="mock_global">全局模拟中</string>
-    <string name="permission_tip_title">重要提示：</string>
-    <string name="permission_tips_content">%1$s 不支持动态申请权限, 您必须提前赋予它需要的所有必要权限, 请在它接下来的权限请求中全部选择允许，否则它将无法运行。</string>
-    <string name="permission_tips_confirm">我知道了</string>
-    <string name="permission_denied_tips_content">%1$s 没有获取到某些运行必须要使用的权限；它不支持动态申请权限. 请去您设备的系统权限管理中赋予本应用必要权限。</string>
-    <string name="permission_denied_ok">启动失败</string>
+
     <string name="start_app_failed">启动 %1$s 失败</string>
     <string name="any_apps">部分应用</string>
     <string name="tip_add_apps">正在添加中</string>

@@ -7,6 +7,7 @@ import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.client.ipc.VActivityManager;
 import com.lody.virtual.helper.utils.VLog;
 import com.lody.virtual.remote.InstallOptions;
+import com.scorpion.splash.LoadingActivity;
 
 /**
  * @author LodyChen
@@ -27,8 +28,7 @@ public class MyAppRequestListener implements VirtualCore.AppRequestListener {
         VirtualCore.get().installPackage(path, options, res -> {
             if (res.isSuccess) {
                 info("Install " + res.packageName + " success.");
-                boolean success = VActivityManager.get().launchApp(0, res.packageName);
-                info("launch app " + (success ? "success." : "fail."));
+                LoadingActivity.launch(context,res.packageName,0);//VActivityManager.get().launchApp(0, res.packageName);
             } else {
                 info("Install " + res.packageName + " fail, reason: " + res.error);
             }

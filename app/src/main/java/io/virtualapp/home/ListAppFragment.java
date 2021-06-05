@@ -2,6 +2,7 @@ package io.virtualapp.home;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,24 +11,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.FileProvider;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.helper.utils.FileUtils;
-import com.lody.virtual.helper.utils.VLog;
 import com.scorpion.utils.InstallTools;
-import com.scorpion.utils.SPTools;
 
 import java.io.File;
 import java.io.IOException;
@@ -104,7 +99,7 @@ public class ListAppFragment extends VFragment<ListAppContract.ListAppPresenter>
             public void onItemClick(AppInfo info, int position) {
                 int count = mAdapter.getSelectedCount();
 
-                if (InstallTools.isInstallAppByPackageName(getContext(),BuildConfig.PACKAGE_NAME_ARM64)){
+                if (InstallTools.isInstallAppByPackageName(getContext(), BuildConfig.PACKAGE_NAME_ARM64)){
                     ((ListAppActivity)getActivity()).startBit64App(null,1107);
                 }else {
                     installApkWindow();
@@ -159,6 +154,7 @@ public class ListAppFragment extends VFragment<ListAppContract.ListAppPresenter>
         textView.setText("部分应用需要安装64插件才能使用,为了体验请安装插件");
 
         dialog.setCancelable(false);
+        view1.findViewById(R.id.double_btn_layout).setVisibility(View.VISIBLE);
         view1.findViewById(R.id.btn_cancel).setOnClickListener((v2) -> dialog.dismiss());
         view1.findViewById(R.id.btn_ok).setOnClickListener((v2) -> {
             dialog.dismiss();

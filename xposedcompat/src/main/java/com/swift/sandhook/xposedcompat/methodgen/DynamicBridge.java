@@ -25,6 +25,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 public final class DynamicBridge {
 
+    private static HookMaker defaultHookMaker = XposedCompat.useNewCallBackup ? new HookerDexMakerNew() : new HookerDexMaker();
     private static final AtomicBoolean dexPathInited = new AtomicBoolean(false);
     private static File dexDir;
 
@@ -69,8 +70,7 @@ public final class DynamicBridge {
                 if (HookBlackList.canNotHookByBridge(hookMethod)) {
                     hookMaker = new HookerDexMaker();
                 } else {
-                  //  hookMaker = defaultHookMaker;
-                    hookMaker = null;
+                    hookMaker = defaultHookMaker;
                 }
                 hookMaker.start(hookMethod, additionalHookInfo,
                         new ProxyClassLoader(DynamicBridge.class.getClassLoader(), hookMethod.getDeclaringClass().getClassLoader()), dexDir == null ? null : dexDir.getAbsolutePath());

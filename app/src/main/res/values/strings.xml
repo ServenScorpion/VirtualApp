@@ -65,7 +65,7 @@
     <string name="mock_device">模拟中</string>
     <string name="dlg_reset_device">重置为真实手机信息</string>
     <string name="mock_global">全局模拟中</string>
-    <string name="permission_tip_title">重要提示：</string>
+    
     <string name="permission_tips_content">%1$s 不支持动态申请权限, 您必须提前赋予它需要的所有必要权限, 请在它接下来的权限请求中全部选择允许，否则它将无法运行。</string>
     <string name="permission_tips_confirm">我知道了</string>
     <string name="permission_denied_tips_content">%1$s 没有获取到某些运行必须要使用的权限；它不支持动态申请权限. 请去您设备的系统权限管理中赋予本应用必要权限。</string>

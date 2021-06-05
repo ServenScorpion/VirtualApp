@@ -26,6 +26,8 @@ import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.client.ipc.VirtualLocationManager;
 import com.lody.virtual.helper.utils.VLog;
 import com.lody.virtual.remote.vloc.VLocation;
+import com.scorpion.location.CoordinateBean;
+import com.scorpion.location.PositionConvertUtil;
 import com.tencent.lbssearch.TencentSearch;
 import com.tencent.lbssearch.httpresponse.BaseObject;
 import com.tencent.lbssearch.httpresponse.HttpResponseListener;
@@ -119,6 +121,8 @@ public class ChooseLocationActivity extends VActivity implements TencentLocation
             VirtualLocationManager.get().setMode(mCurUserId, mCurPkg, VirtualLocationManager.MODE_CLOSE);
             updateMock(false);
             Intent intent = new Intent();
+
+
             mLocation.latitude = 0;
             mLocation.longitude = 0;
             intent.putExtra(VCommends.EXTRA_LOCATION, mLocation);
@@ -129,6 +133,15 @@ public class ChooseLocationActivity extends VActivity implements TencentLocation
         });
 
         mMockBtn.setOnClickListener((v) -> {
+
+            if ("com.alibaba.android.rimet".equals(mCurPkg)){//钉钉打卡的位置不一样,会有偏差用
+                CoordinateBean coordinateBean = PositionConvertUtil.gcj02ToWgs84(mLocation.getLatitude(), mLocation.getLongitude());
+                mLocation.latitude = coordinateBean.getLatitude();
+                mLocation.longitude = coordinateBean.getLongitude();
+            }
+
+            VLog.e("VA-"," mLocation "+mLocation.getLatitude()+"  "+mLocation.getLongitude());
+
             VirtualCore.get().killApp(mCurPkg, mCurUserId);
             VirtualLocationManager.get().setMode(mCurUserId, mCurPkg, VirtualLocationManager.MODE_USE_SELF);
             VirtualLocationManager.get().setLocation(mCurUserId, mCurPkg, mLocation);
@@ -150,7 +163,16 @@ public class ChooseLocationActivity extends VActivity implements TencentLocation
         mCurUserId = getIntent().getIntExtra(VCommends.EXTRA_USERID, 0);
         VLocation vLocation = getIntent().hasExtra(EXTRA_LOCATION) ? getIntent().getParcelableExtra(EXTRA_LOCATION) : null;
         if (vLocation != null) {
-            mLocation = vLocation;
+            CoordinateBean coordinateBean = PositionConvertUtil.wgs84ToGcj02(vLocation.latitude, vLocation.longitude);
+            //mLatLng = new LatLng(mVLocation.latitude, mVLocation.longitude);
+            VLocation mLatLng = new VLocation(coordinateBean.getLatitude(), coordinateBean.getLongitude());
+
+            if ("com.alibaba.android.rimet".equals(mCurPkg)){//钉钉打卡的位置不一样,会有偏差用
+                mLocation = /*vLocation*/mLatLng;
+            }else {
+                mLocation = vLocation;
+            }
+
             updateMock(VirtualLocationManager.get().isUseVirtualLocation(mCurUserId, mCurPkg));
             gotoLocation(null, vLocation.getLatitude(), vLocation.getLongitude(), true);
         } else {

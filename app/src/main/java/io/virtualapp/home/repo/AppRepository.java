@@ -198,6 +198,7 @@ public class AppRepository implements AppDataSource {
 
     @Override
     public InstallResult addVirtualApp(AppInfoLite info) {
+        //这里这个参数比较重要, 特别是第三个
         InstallOptions options = InstallOptions.makeOptions(info.notCopyApk, false, InstallOptions.UpdateStrategy.COMPARE_VERSION);
         return VirtualCore.get().installPackageSync(info.path, options);
     }

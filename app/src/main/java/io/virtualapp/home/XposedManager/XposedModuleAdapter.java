@@ -20,8 +20,8 @@ import com.lody.virtual.client.ipc.VActivityManager;
 import com.lody.virtual.client.ipc.VPackageManager;
 import com.lody.virtual.helper.compat.PermissionCompat;
 import com.lody.virtual.remote.InstalledAppInfo;
-import com.lody.virtual.sandxposed.XposedConfig;
 import com.lody.virtual.server.bit64.V64BitHelper;
+import com.scorpion.splash.LoadingActivity;
 
 import java.util.List;
 
@@ -200,6 +200,6 @@ public class XposedModuleAdapter extends RecyclerView.Adapter<XposedModuleAdapte
                 return;
             }
         }
-        VActivityManager.get().launchApp(userId, packageName);
+        LoadingActivity.launch(context,packageName,userId);
     }
 }

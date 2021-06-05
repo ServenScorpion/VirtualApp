@@ -42,6 +42,10 @@
             android:name="TencentMapSDK"
             android:value="4HPBZ-2QWC6-H47SR-M6PZY-MTZB5-N2F4F" />
 
+        <meta-data
+            android:name="ScorpionSDK"
+            android:value="kook-virtual-QP02150414" />
+
         <activity
             android:name=".splash.SplashActivity"
             android:screenOrientation="portrait"

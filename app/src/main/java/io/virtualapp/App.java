@@ -1,6 +1,7 @@
 package io.virtualapp;
 
 import android.app.Application;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -15,6 +16,7 @@ import com.scorpion.utils.SPTools;
 
 import io.virtualapp.delegate.MyAppRequestListener;
 import io.virtualapp.delegate.MyTaskDescDelegate;
+import io.virtualapp.home.BackHomeActivity;
 //import jonathanfinerty.once.Once;
 import android.content.BroadcastReceiver;
 
@@ -47,12 +49,12 @@ public class App extends Application {
 
         @Override
         public Intent onHandleLauncherIntent(Intent originIntent) {
-            /*Intent intent = new Intent();
+            Intent intent = new Intent();
             ComponentName component = new ComponentName(getHostPackageName(), BackHomeActivity.class.getName());
             intent.setComponent(component);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            return intent;*/
-            return null;
+            return intent;
+            //return null;
         }
 
         @Override
