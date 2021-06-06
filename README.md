@@ -2,7 +2,7 @@
 [original software](https://github.com/asLody/VirtualApp)<br>
 This project is only for your use, please have any questions <br>
 Wechat : serven_scorpion <br>
-Email  : qixie0306@gmail.com
+Email  : qixie0306@gmail.com  <br>
 Telegram : https://t.me/singular_point_scorpion <br>
 
 For this project, HOST is 32-bit and plugin is 64-bit. You can configure VA_VERSION_64 in vaconFig. Gradle file to true to reward HOST to 64-bit
