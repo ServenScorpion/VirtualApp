@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- llvision_device_filter -->
+    <usb-device product-id="0x00000031" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000032" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00002150" vendor-id="0x000003E7" />
+    <usb-device product-id="0x00000041" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000050" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000051" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000060" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000061" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000070" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000071" vendor-id="0x00002E09" />
+    <!-- update from @app-->
+    <!--<usb-device product-id="0x00002485" vendor-id="0x000003E7" />
+    <usb-device product-id="0x00000052" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000062" vendor-id="0x00002E09" />
+    <usb-device product-id="0x00000072" vendor-id="0x00002E09" />-->
+</resources>

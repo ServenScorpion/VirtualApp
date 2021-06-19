@@ -95,8 +95,6 @@ Memory/.externalNativeBuild/
 .gradle/
 app/app.iml
 .idea/workspace.xml
-/lib
-/lib/*
 /lib64
 /lib64/*
 /local.properties

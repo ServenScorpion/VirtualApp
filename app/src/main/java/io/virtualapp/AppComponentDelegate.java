@@ -50,6 +50,7 @@ public class AppComponentDelegate implements AppCallback {
 
     @Override
     public void beforeApplicationCreate(String packageName, String processName, Application application) {
+
     }
 
     @Override

@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<map>
+    <int name="video_scan_roots.version" value="29" />
+    <string name="video_scan_roots.2">%2Fstorage%2Femulated%2F0:!%2Fstorage%2Femulated%2F0%2FNotifications:!%2Fstorage%2Femulated%2F0%2FRingtones</string>
+</map>

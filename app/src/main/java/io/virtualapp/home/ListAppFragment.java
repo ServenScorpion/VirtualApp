@@ -21,8 +21,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.lody.virtual.client.core.VirtualCore;
+import com.lody.virtual.helper.compat.NativeLibraryHelperCompat;
 import com.lody.virtual.helper.utils.FileUtils;
+import com.lody.virtual.helper.utils.VLog;
+import com.lody.virtual.server.bit64.V64BitHelper;
+import com.lody.virtual.server.pm.PackageSetting;
+import com.lody.virtual.server.pm.parser.PackageParserEx;
+import com.lody.virtual.server.pm.parser.VPackage;
+import com.scorpion.utils.HVLog;
 import com.scorpion.utils.InstallTools;
+import com.scorpion.utils.ResponseProgram;
 
 import java.io.File;
 import java.io.IOException;
@@ -30,6 +39,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 import io.virtualapp.BuildConfig;
 import io.virtualapp.R;
@@ -99,21 +109,62 @@ public class ListAppFragment extends VFragment<ListAppContract.ListAppPresenter>
             public void onItemClick(AppInfo info, int position) {
                 int count = mAdapter.getSelectedCount();
 
-                if (InstallTools.isInstallAppByPackageName(getContext(), BuildConfig.PACKAGE_NAME_ARM64)){
-                    ((ListAppActivity)getActivity()).startBit64App(null,1107);
-                }else {
-                    installApkWindow();
-                    return;
+                boolean installAppByPackageName = InstallTools.isInstallAppByPackageName(getContext(), BuildConfig.PACKAGE_NAME_ARM64);
+                if (!installAppByPackageName){
+                    mProgressBar.setVisibility(View.VISIBLE);
                 }
-
-
-                if (!mAdapter.isIndexSelected(position)) {
-                    if (count >= 9) {
-                        Toast.makeText(getContext(), R.string.install_too_much_once_time, Toast.LENGTH_SHORT).show();
-                        return;
+                ResponseProgram.defer().when(()->{
+                    if (installAppByPackageName){
+                        return false;
                     }
-                }
-                mAdapter.toggleSelected(position);
+                    boolean isNeed64Proces = false;
+                    try {
+                        boolean support64bit = false, support32bit = false;
+                        boolean shouldLinkInstalledSo = false;
+                        NativeLibraryHelperCompat.SoLib installedSo = null;
+                        Set<String> abiList = NativeLibraryHelperCompat.getSupportAbiList(info.path);
+                        if (NativeLibraryHelperCompat.support64bitAbi(abiList)) {
+                            support64bit = true;
+                        }
+                        if (NativeLibraryHelperCompat.contain32bitAbi(abiList)) {
+                            support32bit = true;
+                        }
+
+                        if (support32bit) {
+                            if (support64bit) {
+                                isNeed64Proces = true;
+                            } else {
+                                isNeed64Proces = false;
+                            }
+                        } else {
+                            isNeed64Proces = true;
+                        }
+                    } catch (Throwable throwable) {
+                        HVLog.printThrowable(throwable);
+                    }
+                    return isNeed64Proces;
+                }).done((isNeed64Proces)->{
+                    mProgressBar.setVisibility(View.GONE);
+                    if (installAppByPackageName){
+                        ((ListAppActivity)getActivity()).startBit64App(null,1107);
+                    }else {
+                        if (isNeed64Proces) {
+                            installApkWindow();
+                            return;
+                        }
+                    }
+
+                    if (!mAdapter.isIndexSelected(position)) {
+                        if (count >= 9) {
+                            Toast.makeText(getContext(), R.string.install_too_much_once_time, Toast.LENGTH_SHORT).show();
+                            return;
+                        }
+                    }
+                    mAdapter.toggleSelected(position);
+                }).fail((throwable)->{
+                    mProgressBar.setVisibility(View.GONE);
+                    HVLog.printThrowable(throwable);
+                });
             }
 
             @Override
