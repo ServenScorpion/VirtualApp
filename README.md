@@ -26,7 +26,6 @@ Telegram （TG）: https://t.me/singular_point_scorpion <br>
 # VirtualApp11
 [original software](https://github.com/asLody/VirtualApp)<br>
 This project is only for your use, please have any questions <br>
-Wechat : serven_scorpion <br>
 Email  : qixie0306@gmail.com  <br>
 Telegram : https://t.me/singular_point_scorpion <br>
 
