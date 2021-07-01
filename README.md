@@ -1,8 +1,7 @@
 # VirtualApp11
-[软件原版](https://github.com/asLody/VirtualApp)<br>
+兼容至Android 11 （ 12 正在兼容） [软件原版 ](https://github.com/asLody/VirtualApp)<br>
 本项目纯属供大家使用,有疑问请 <br>
 
-兼容至Android 11 （ 12 正在兼容）
 微信 : serven_scorpion <br>
 Email  : qixie0306@gmail.com  <br>
 Telegram （TG）: https://t.me/singular_point_scorpion <br>
