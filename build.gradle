@@ -1,6 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: 'VAConfig.gradle'
-apply plugin: 'me.ele.mess'
 buildscript {
     repositories {
         google()

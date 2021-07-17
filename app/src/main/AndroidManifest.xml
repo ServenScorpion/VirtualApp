@@ -44,7 +44,7 @@
 
         <meta-data
             android:name="ScorpionSDK"
-            android:value="kook-virtual-QP02150414" />
+            android:value="github-vbox" />
 
         <activity
             android:name=".splash.SplashActivity"

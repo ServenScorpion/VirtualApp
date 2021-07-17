@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatDelegate;
 import com.lody.virtual.client.core.SettingConfig;
 import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.helper.utils.VLog;
+import com.scorpion.splash.AppComponentDelegate;
 import com.scorpion.utils.SPTools;
 
 import io.virtualapp.delegate.MyAppRequestListener;

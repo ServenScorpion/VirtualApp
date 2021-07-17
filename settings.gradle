@@ -1,5 +1,4 @@
 include ':xposedcompat'
 include ':hooklib'
 include ':annotation'
-include ':lib-native'
 include ':app'
