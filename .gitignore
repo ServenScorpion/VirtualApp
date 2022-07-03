@@ -16,7 +16,6 @@ app/.externalNativeBuild/
 ImagePicker/build/
 
 # Built application files
-*.apk
 *.ap_
 *.aab
 
