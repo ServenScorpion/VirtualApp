@@ -86,7 +86,6 @@ lint/tmp/
 # lint/reports/
 
 
-release/
 lib-back/
 
 spinner_lib/build/
