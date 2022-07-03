@@ -1,5 +1,5 @@
 # VirtualApp11
-兼容至Android 11 （ 12 正在兼容） [软件原版 ](https://github.com/asLody/VirtualApp)<br>
+兼容至Android 12  [软件原版 ](https://github.com/asLody/VirtualApp)<br>
 本项目纯属供大家学习使用,有疑问请 <br>
 [ 试用APK程序 ](https://github.com/ServenScorpion/VirtualApp/blob/master/release/app-2.0.1.apk)<br>
 Email  : qixie0306@gmail.com  <br>
