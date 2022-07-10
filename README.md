@@ -1,7 +1,7 @@
 # VirtualApp11
 兼容至Android 12  [软件原版 ](https://github.com/asLody/VirtualApp)<br>
 本项目纯属供大家学习使用,有疑问请 <br>
-[ 试用APK程序 ](https://github.com/ServenScorpion/VirtualApp/blob/master/release/app-2.0.1.apk)<br>
+[ 试用APK程序 ](https://wws.lanzouj.com/app210)<br>
 Email  : qixie0306@gmail.com  <br>
 Telegram （TG）: https://t.me/singular_point_scorpion <br>
 
@@ -23,7 +23,7 @@ Telegram （TG）: https://t.me/singular_point_scorpion <br>
      
      
      
-# VirtualApp11
+# VirtualApp12
 [original software](https://github.com/asLody/VirtualApp)<br>
 This project is only for your use, please have any questions <br>
 Email  : qixie0306@gmail.com  <br>
