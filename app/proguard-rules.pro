@@ -31,9 +31,9 @@
     *;
 }
 
--repackageclass z2
+#-repackageclass z1
 
--ignorewarning
+#-ignorewarning
 -keepattributes *Annotation*
 #保留部分泛型信息，必要!
 -keepattributes Signature
@@ -93,7 +93,7 @@
    public *;
 }
 
--keepattributes Exceptions, InnerClasses, ...
+#-keepattributes Exceptions, InnerClasses, ...
 -keep class andhook.lib.xposed.XC_MethodHook
 -keepclassmembers class andhook.lib.xposed.XC_MethodHook {
    *;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.virtualapp">
+    package="com.carlos">
     <!--外部存储的写权限-->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!--外部存储的读权限-->
@@ -29,26 +29,36 @@
     <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.OTHER_SERVICES" />
     <uses-permission android:name="com.google.android.googleapps.permission.GOOGLE_AUTH.YouTubeUser" />
     <!-- google app end -->
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
     <application
+        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+        android:requestLegacyExternalStorage="true"
+        android:networkSecurityConfig="@xml/network_security"
         android:resizeableActivity="true"
-        android:name=".App"
+        android:name="com.carlos.common.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:supportsRtl="true"
         android:largeHeap="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning,HardcodedDebugMode">
         <meta-data
-            android:name="TencentMapSDK"
-            android:value="4HPBZ-2QWC6-H47SR-M6PZY-MTZB5-N2F4F" />
-
+            android:name="com.amap.api.v2.apikey"
+            android:value="77f19c1a1debd7687c396a196a88195b" />
         <meta-data
             android:name="ScorpionSDK"
-            android:value="github-vbox" />
+            android:value="zxc77848" />
+
+        <meta-data
+            android:name="softId"
+            android:value="softId-1477640130402603010" />
 
         <activity
-            android:name=".splash.SplashActivity"
-            android:screenOrientation="portrait"
+            android:name="com.carlos.splash.splashActivity"
+            android:exported="true"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -56,52 +66,31 @@
             </intent-filter>
         </activity>
 
+
         <activity
-            android:name=".home.HomeActivity"
-            android:screenOrientation="portrait"
+            android:name="com.carlos.home.HomeActivity"
             android:theme="@style/UITheme" />
 
         <activity
-            android:name=".home.ListAppActivity"
-            android:screenOrientation="portrait"
+            android:name="com.carlos.home.ListAppActivity"
             android:theme="@style/UITheme" />
 
-        <activity
-            android:name=".home.location.LocationSettingsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/UITheme" />
-        <activity
-            android:name=".home.location.ChooseLocationActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/UITheme" />
 
         <activity
-            android:name=".home.device.DeviceDetailActiivty"
-            android:screenOrientation="portrait"
-            android:theme="@style/UITheme" />
-        <activity
-            android:name=".home.device.DeviceSettingsActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/UITheme" />
-
-        <activity
-            android:name=".home.PermissionRequestActivity"
+            android:name="com.carlos.home.PermissionRequestActivity"
             android:launchMode="singleInstance"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name=".home.BackHomeActivity"
-            android:exported="true"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity
-            android:name=".home.AppSettingActivity"
+            android:name="com.carlos.home.AppSettingActivity"
             android:theme="@style/UITheme.HasActionBar" />
 
-        <activity android:name=".home.XposedManager.XposedManagerActivity"
+        <activity android:name="com.carlos.home.XposedManager.XposedManagerActivity"
             android:label="Xposed Manager"
             android:theme="@style/UITheme" />
         <!-- va的x进程处理 -->
         <receiver
-            android:name=".PackageReceiver"
+            android:name="com.carlos.PackageReceiver"
+            android:exported="true"
             android:enabled="false">
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_ADDED" />
@@ -113,7 +102,7 @@
         </receiver>
 
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">

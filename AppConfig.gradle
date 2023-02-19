@@ -1,0 +1,88 @@
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+        }
+    }
+}
+
+subprojects {
+
+    afterEvaluate {
+        def isAndroidProject = project.plugins.hasPlugin('android')
+        def isLibraryProject = project.plugins.hasPlugin('android-library')
+
+        if (isAndroidProject || isLibraryProject) {
+            android {
+                compileSdkVersion 31
+                //buildToolsVersion '30.0.1'
+
+                compileOptions {
+                    sourceCompatibility JavaVersion.VERSION_1_8
+                    targetCompatibility JavaVersion.VERSION_1_8
+                }
+
+                if (new File(projectDir, "src/main/cpp/CMakeLists.txt").exists()) {
+                    externalNativeBuild {
+                        cmake {
+                            path "src/main/cpp/CMakeLists.txt"
+                        }
+                    }
+                }
+
+                defaultConfig {
+                    minSdkVersion 21
+                    //noinspection OldTargetApi
+                    targetSdkVersion 30
+
+                    versionCode rootProject.ext.VA_VERSION_CODE
+                    versionName rootProject.ext.VA_VERSION
+                }
+
+                lintOptions {
+                    checkReleaseBuilds false
+                    abortOnError false
+                }
+            }
+        }
+
+        if (isAndroidProject) {
+            android {
+                signingConfigs {
+                    va {
+                        storeFile       file(rootProject.ext.signing_storeFile)
+                        storePassword   rootProject.ext.signing_storePassword
+                        keyAlias        rootProject.ext.signing_keyAlias
+                        keyPassword     rootProject.ext.signing_keyPassword
+                    }
+                }
+
+                buildTypes {
+                    release {
+                        signingConfig signingConfigs.va
+                        minifyEnabled false
+                        shrinkResources false
+                        zipAlignEnabled false
+                        proguardFiles getDefaultProguardFile('proguard-android.txt'), "${rootProject.rootDir}/proguard/proguard-rules.pro", "proguard-rules.pro"
+                    }
+
+                    debug {
+                        signingConfig release.signingConfig
+                        crunchPngs false //关闭crunchPng优化
+                        minifyEnabled false
+
+                        //minifyEnabled true
+                        //shrinkResources true
+                        //zipAlignEnabled true
+                        //proguardFiles getDefaultProguardFile('proguard-android.txt'), "${rootProject.rootDir}/proguard/proguard-rules.pro", "proguard-rules.pro"
+                    }
+                }
+            }
+        }
+    }
+}

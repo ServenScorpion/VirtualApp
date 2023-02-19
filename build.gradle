@@ -1,5 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from: 'VAConfig.gradle'
+apply from: 'AppConfig.gradle'
+
 buildscript {
     repositories {
         google()

@@ -1,73 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:paddingStart="16dp"
+    android:layout_height="60dp">
 
     <ImageView
         android:id="@+id/item_app_checked"
-        android:layout_width="23dp"
-        android:layout_height="23dp"
-        android:layout_gravity="top|end"
-        android:src="@drawable/ic_no_check" />
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_vertical|start"
+        android:src="@drawable/ic_check_normal" />
 
-    <io.virtualapp.widgets.LabelView xmlns:lv="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/item_app_clone_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
-        android:visibility="invisible"
-        lv:lv_background_color="#F6CE59"
-        lv:lv_fill_triangle="true"
-        lv:lv_gravity="BOTTOM_LEFT"
-        lv:lv_text="2"
-        lv:lv_text_all_caps="false"
-        lv:lv_text_color="@android:color/black"
-        lv:lv_text_size="12sp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:paddingBottom="35dp"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/item_app_checked"
+        android:orientation="horizontal"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:paddingTop="35dp">
+        >
 
-        <ImageView
-            android:id="@+id/item_app_icon"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginBottom="12dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/item_app_icon"
+                android:layout_width="40dp"
+                android:layout_gravity="center"
+                android:layout_height="40dp"/>
 
-        <io.virtualapp.widgets.MarqueeTextView
-            android:textStyle="bold"
-            android:id="@+id/item_app_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:focusableInTouchMode="true"
+
+            <com.carlos.widgets.MarqueeTextView
+                android:textStyle="bold"
+                android:id="@+id/item_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@id/item_app_icon"
+                android:ellipsize="marquee"
+                android:layout_gravity="center_vertical"
+                android:focusableInTouchMode="true"
+                android:layout_marginStart="5dp"
+                android:gravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:textColor="#333333"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <com.carlos.common.widget.LabelView xmlns:lv="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/item_app_clone_count"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_gravity="bottom|start"
+            android:visibility="invisible"
+            android:layout_alignParentBottom="true"
+            lv:lv_background_color="#F6CE59"
+            lv:lv_fill_triangle="true"
+            lv:lv_gravity="BOTTOM_LEFT"
+            lv:lv_text="2"
+            lv:lv_text_all_caps="false"
+            lv:lv_text_color="@android:color/black"
+            lv:lv_text_size="12sp" />
+
+<!--        <com.carlos.widgets.NumberView
+            android:id="@+id/number_view_count"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:layout_gravity="center_vertical|right"
+            android:layout_width="120dp"/>-->
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:id="@+id/app_manager_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_20"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp_20">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/app_manager"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_6bc196"
             android:gravity="center"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:singleLine="true"
-            android:textColor="@android:color/black"
-            android:textSize="12sp" />
-
+            android:tag="binding_6"
+            android:text="管理"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
-
-    <io.virtualapp.widgets.LabelView xmlns:lv="http://schemas.android.com/apk/res-auto"
+<!--    <com.carlos.common.widget.LabelView xmlns:lv="http://schemas.android.com/apk/res-auto"
         android:id="@+id/item_app_process"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:layout_gravity="center_vertical|end"
         lv:lv_background_color="#88c6c6c6"
         lv:lv_fill_triangle="true"
         lv:lv_gravity="BOTTOM_RIGHT"
         lv:lv_text="2"
         lv:lv_text_all_caps="false"
         lv:lv_text_color="@android:color/white"
-        lv:lv_text_size="8sp" />
+        lv:lv_text_size="8sp" />-->
 
-</FrameLayout>
+</RelativeLayout>

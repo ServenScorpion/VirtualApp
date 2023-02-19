@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:gravity="center"
+    app:cardCornerRadius="10dp"
     app:cardElevation="3dp">
 
-    <io.virtualapp.widgets.LabelView
+    <com.carlos.common.widget.LabelView
         xmlns:lv="http://schemas.android.com/apk/res-auto"
         android:id="@+id/item_app_space_idx"
         android:layout_width="wrap_content"
@@ -23,23 +24,23 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="vertical"
-        android:paddingBottom="30dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="30dp">
+        android:paddingBottom="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="20dp">
 
-        <io.virtualapp.widgets.LauncherIconView
+        <com.carlos.widgets.LauncherIconView
             android:id="@+id/item_app_icon"
             android:layout_width="45dp"
             android:layout_height="45dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="14dp"
             app:pi_mask_color="#CC233333"
             app:pi_progress="0"
             app:pi_radius="40dp"
             app:pi_stroke="6dp" />
 
 
-        <io.virtualapp.widgets.MarqueeTextView
+        <com.carlos.widgets.MarqueeTextView
             android:textStyle="bold"
             android:id="@+id/item_app_name"
             android:layout_width="wrap_content"
@@ -62,17 +63,17 @@
 
     </LinearLayout>
 
-    <io.virtualapp.widgets.LabelView xmlns:lv="http://schemas.android.com/apk/res-auto"
+    <com.carlos.common.widget.LabelView xmlns:lv="http://schemas.android.com/apk/res-auto"
         android:id="@+id/item_app_process"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        lv:lv_background_color="#88c6c6c6"
+        lv:lv_background_color="@color/color_6bc196"
         lv:lv_fill_triangle="true"
         lv:lv_gravity="BOTTOM_RIGHT"
-        lv:lv_text="2"
+        lv:lv_text="32"
         lv:lv_text_all_caps="false"
         lv:lv_text_color="@android:color/white"
         lv:lv_text_size="8sp" />
 
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,325 @@
+# compiler: R8
+# compiler_version: 2.2.71
+# min_api: 21
+# pg_map_id: d0ddc14
+# common_typos_disable
+
+com.swift.sandhook.xposedcompat.XposedCompat -> com.swift.sandhook.xcompat.a:
+com.swift.sandhook.xposedcompat.classloaders.ProxyClassLoader -> com.swift.sandhook.xcompat.b:
+com.swift.sandhook.xposedcompat.hookstub.CallOriginCallBack -> com.swift.sandhook.xcompat.c:
+com.swift.sandhook.xposedcompat.hookstub.HookMethodEntity -> com.swift.sandhook.xcompat.d:
+com.swift.sandhook.xposedcompat.hookstub.HookStubManager -> com.swift.sandhook.xcompat.e:
+com.swift.sandhook.xposedcompat.hookstub.HookStubManager$StubMethodsInfo -> com.swift.sandhook.xcompat.e$a:
+com.swift.sandhook.xposedcompat.hookstub.MethodHookerStubs32 -> com.swift.sandhook.xcompat.f:
+com.swift.sandhook.xposedcompat.hookstub.MethodHookerStubs64 -> com.swift.sandhook.xcompat.g:
+com.swift.sandhook.xposedcompat.methodgen.DynamicBridge -> com.swift.sandhook.xcompat.h:
+com.swift.sandhook.xposedcompat.methodgen.ErrorCatch -> com.swift.sandhook.xcompat.i:
+com.swift.sandhook.xposedcompat.methodgen.HookMaker -> com.swift.sandhook.xcompat.j:
+com.swift.sandhook.xposedcompat.methodgen.HookerDexMaker -> com.swift.sandhook.xcompat.k:
+com.swift.sandhook.xposedcompat.methodgen.HookerDexMakerNew -> com.swift.sandhook.xcompat.l:
+com.swift.sandhook.xposedcompat.utils.ApplicationUtils -> com.swift.sandhook.xcompat.m:
+com.swift.sandhook.xposedcompat.utils.DexLog -> com.swift.sandhook.xcompat.n:
+com.swift.sandhook.xposedcompat.utils.DexMakerUtils -> com.swift.sandhook.xcompat.o:
+com.swift.sandhook.xposedcompat.utils.FileUtils -> com.swift.sandhook.xcompat.p:
+com.swift.sandhook.xposedcompat.utils.ProcessUtils -> com.swift.sandhook.xcompat.q:
+
+de.robv.android.xposed.IXposedHookCmdInit -> u.dont.know.what.i.am.a:
+    void initCmdApp(de.robv.android.xposed.IXposedHookCmdInit$StartupParam) -> a
+de.robv.android.xposed.IXposedHookCmdInit$StartupParam -> u.dont.know.what.i.am.a$a:
+    java.lang.String modulePath -> a
+    java.lang.String startClassName -> b
+de.robv.android.xposed.IXposedHookInitPackageResources -> u.dont.know.what.i.am.b:
+    void handleInitPackageResources(de.robv.android.xposed.callbacks.XC_InitPackageResources$InitPackageResourcesParam) -> b
+de.robv.android.xposed.IXposedHookInitPackageResources$Wrapper -> u.dont.know.what.i.am.b$a:
+    de.robv.android.xposed.IXposedHookInitPackageResources instance -> a
+    void handleInitPackageResources(de.robv.android.xposed.callbacks.XC_InitPackageResources$InitPackageResourcesParam) -> b
+de.robv.android.xposed.IXposedHookLoadPackage -> u.dont.know.what.i.am.c:
+    void handleLoadPackage(de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam) -> d
+de.robv.android.xposed.IXposedHookLoadPackage$Wrapper -> u.dont.know.what.i.am.c$a:
+    de.robv.android.xposed.IXposedHookLoadPackage instance -> a
+    void handleLoadPackage(de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam) -> d
+de.robv.android.xposed.IXposedHookZygoteInit -> u.dont.know.what.i.am.d:
+    void initZygote(de.robv.android.xposed.IXposedHookZygoteInit$StartupParam) -> c
+de.robv.android.xposed.IXposedHookZygoteInit$StartupParam -> u.dont.know.what.i.am.d$a:
+    java.lang.String modulePath -> a
+    boolean startsSystemServer -> b
+de.robv.android.xposed.IXposedMod -> u.dont.know.what.i.am.e:
+de.robv.android.xposed.SELinuxHelper -> u.dont.know.what.i.am.f:
+    de.robv.android.xposed.services.BaseService sServiceAppDataFile -> b
+    boolean sIsSELinuxEnabled -> a
+    de.robv.android.xposed.services.BaseService getAppDataFileService() -> a
+    java.lang.String getContext() -> b
+    boolean isSELinuxEnabled() -> c
+    boolean isSELinuxEnforced() -> d
+de.robv.android.xposed.XC_MethodHook -> u.dont.know.what.i.am.g:
+de.robv.android.xposed.XC_MethodHook$MethodHookParam -> u.dont.know.what.i.am.g$a:
+    java.lang.Object[] args -> e
+    java.lang.reflect.Member method -> c
+    java.lang.Object result -> f
+    java.lang.Object thisObject -> d
+    java.lang.Throwable throwable -> g
+    boolean returnEarly -> h
+    java.lang.Object getResult() -> d
+    java.lang.Object getResultOrThrowable() -> e
+    java.lang.Throwable getThrowable() -> f
+    boolean hasThrowable() -> g
+    void setResult(java.lang.Object) -> h
+    void setThrowable(java.lang.Throwable) -> i
+de.robv.android.xposed.XC_MethodHook$Unhook -> u.dont.know.what.i.am.g$b:
+    de.robv.android.xposed.XC_MethodHook this$0 -> b
+    java.lang.reflect.Member hookMethod -> a
+    void unhook() -> a
+    java.lang.Object getCallback() -> b
+    de.robv.android.xposed.XC_MethodHook getCallback() -> c
+    java.lang.reflect.Member getHookedMethod() -> d
+de.robv.android.xposed.XC_MethodReplacement -> u.dont.know.what.i.am.h:
+    de.robv.android.xposed.XC_MethodReplacement DO_NOTHING -> a
+    java.lang.Object replaceHookedMethod(de.robv.android.xposed.XC_MethodHook$MethodHookParam) -> e
+    de.robv.android.xposed.XC_MethodReplacement returnConstant(int,java.lang.Object) -> f
+    de.robv.android.xposed.XC_MethodReplacement returnConstant(java.lang.Object) -> g
+de.robv.android.xposed.XC_MethodReplacement$1 -> u.dont.know.what.i.am.h$a:
+    java.lang.Object replaceHookedMethod(de.robv.android.xposed.XC_MethodHook$MethodHookParam) -> e
+de.robv.android.xposed.XC_MethodReplacement$2 -> u.dont.know.what.i.am.h$b:
+    java.lang.Object val$result -> b
+    java.lang.Object replaceHookedMethod(de.robv.android.xposed.XC_MethodHook$MethodHookParam) -> e
+de.robv.android.xposed.XSharedPreferences -> u.dont.know.what.i.am.i:
+    java.io.File mFile -> b
+    java.util.Map mMap -> d
+    long mLastModified -> f
+    long mFileSize -> g
+    boolean mLoaded -> e
+    java.lang.String TAG -> a
+    java.lang.String mFilename -> c
+    void access$000(de.robv.android.xposed.XSharedPreferences) -> a
+    void awaitLoadedLocked() -> b
+    java.io.File getFile() -> c
+    boolean hasFileChanged() -> d
+    void loadFromDiskLocked() -> e
+    boolean makeWorldReadable() -> f
+    void reload() -> g
+    void startLoadFromDisk() -> h
+de.robv.android.xposed.XSharedPreferences$1 -> u.dont.know.what.i.am.i$a:
+    de.robv.android.xposed.XSharedPreferences this$0 -> a
+de.robv.android.xposed.XposedBridge -> u.dont.know.what.i.am.j:
+    long BOOT_START_TIME -> i
+    int RUNTIME_DALVIK -> f
+    int RUNTIME_ART -> g
+    int runtime -> e
+    int XPOSED_BRIDGE_VERSION -> c
+    de.robv.android.xposed.XposedBridge$CopyOnWriteSortedSet sInitPackageResourcesCallbacks -> m
+    de.robv.android.xposed.XposedBridge$CopyOnWriteSortedSet sLoadedPackageCallbacks -> l
+    java.lang.ClassLoader BOOTCLASSLOADER -> a
+    java.lang.Object[] EMPTY_ARRAY -> j
+    java.util.Map sHookedMethodCallbacks -> k
+    boolean disableHooks -> h
+    java.lang.String TAG -> b
+    boolean isZygote -> d
+    java.lang.Object[] access$100() -> a
+    java.io.File ensureSuperDexFile(java.lang.String,java.lang.Class,java.lang.Class) -> b
+    int getXposedVersion() -> c
+    java.util.Set hookAllConstructors(java.lang.Class,de.robv.android.xposed.XC_MethodHook) -> d
+    java.util.Set hookAllMethods(java.lang.Class,java.lang.String,de.robv.android.xposed.XC_MethodHook) -> e
+    void hookInitPackageResources(de.robv.android.xposed.callbacks.XC_InitPackageResources) -> f
+    void hookLoadPackage(de.robv.android.xposed.callbacks.XC_LoadPackage) -> g
+    de.robv.android.xposed.XC_MethodHook$Unhook hookMethod(java.lang.reflect.Member,de.robv.android.xposed.XC_MethodHook) -> h
+    void hookMethodNative(java.lang.reflect.Member,java.lang.Class,int,java.lang.Object) -> i
+    void initXResources() -> j
+    java.lang.Object invokeOriginalMethod(java.lang.reflect.Member,java.lang.Object,java.lang.Object[]) -> k
+    void log(java.lang.String) -> l
+    void log(java.lang.Throwable) -> m
+    void main(java.lang.String[]) -> n
+    void unhookMethod(java.lang.reflect.Member,de.robv.android.xposed.XC_MethodHook) -> o
+de.robv.android.xposed.XposedBridge$1 -> u.dont.know.what.i.am.j$a:
+de.robv.android.xposed.XposedBridge$AdditionalHookInfo -> u.dont.know.what.i.am.j$b:
+    java.lang.Class[] parameterTypes -> b
+    de.robv.android.xposed.XposedBridge$CopyOnWriteSortedSet callbacks -> a
+    java.lang.Class returnType -> c
+de.robv.android.xposed.XposedBridge$CopyOnWriteSortedSet -> u.dont.know.what.i.am.j$c:
+    java.lang.Object[] elements -> a
+    boolean add(java.lang.Object) -> a
+    java.lang.Object[] getSnapshot() -> b
+    int indexOf(java.lang.Object) -> c
+    boolean remove(java.lang.Object) -> d
+de.robv.android.xposed.XposedHelpers -> u.dont.know.what.i.am.k:
+    java.util.HashMap methodCache -> b
+    java.util.HashMap fieldCache -> a
+    java.util.WeakHashMap additionalFields -> d
+    java.util.HashMap sMethodDepth -> e
+    java.util.HashMap constructorCache -> c
+    java.lang.reflect.Field findFieldRecursiveImpl(java.lang.Class,java.lang.String) -> A
+    java.lang.Object setAdditionalStaticField(java.lang.Class,java.lang.String,java.lang.Object) -> A0
+    java.lang.reflect.Field findFirstFieldByExactType(java.lang.Class,java.lang.Class) -> B
+    java.lang.Object setAdditionalStaticField(java.lang.Object,java.lang.String,java.lang.Object) -> B0
+    java.lang.reflect.Method findMethodBestMatch(java.lang.Class,java.lang.String,java.lang.Class[]) -> C
+    void setBooleanField(java.lang.Object,java.lang.String,boolean) -> C0
+    java.lang.reflect.Method findMethodBestMatch(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Object[]) -> D
+    void setByteField(java.lang.Object,java.lang.String,byte) -> D0
+    java.lang.reflect.Method findMethodBestMatch(java.lang.Class,java.lang.String,java.lang.Object[]) -> E
+    void setCharField(java.lang.Object,java.lang.String,char) -> E0
+    java.lang.reflect.Method findMethodExact(java.lang.Class,java.lang.String,java.lang.Class[]) -> F
+    void setDoubleField(java.lang.Object,java.lang.String,double) -> F0
+    java.lang.reflect.Method findMethodExact(java.lang.Class,java.lang.String,java.lang.Object[]) -> G
+    void setFloatField(java.lang.Object,java.lang.String,float) -> G0
+    java.lang.reflect.Method findMethodExact(java.lang.String,java.lang.ClassLoader,java.lang.String,java.lang.Object[]) -> H
+    void setIntField(java.lang.Object,java.lang.String,int) -> H0
+    java.lang.reflect.Method findMethodExactIfExists(java.lang.Class,java.lang.String,java.lang.Object[]) -> I
+    void setLongField(java.lang.Object,java.lang.String,long) -> I0
+    java.lang.reflect.Method findMethodExactIfExists(java.lang.String,java.lang.ClassLoader,java.lang.String,java.lang.Object[]) -> J
+    void setObjectField(java.lang.Object,java.lang.String,java.lang.Object) -> J0
+    java.lang.reflect.Method[] findMethodsByExactParameters(java.lang.Class,java.lang.Class,java.lang.Class[]) -> K
+    void setShortField(java.lang.Object,java.lang.String,short) -> K0
+    java.lang.Object getAdditionalInstanceField(java.lang.Object,java.lang.String) -> L
+    void setStaticBooleanField(java.lang.Class,java.lang.String,boolean) -> L0
+    java.lang.Object getAdditionalStaticField(java.lang.Class,java.lang.String) -> M
+    void setStaticByteField(java.lang.Class,java.lang.String,byte) -> M0
+    java.lang.Object getAdditionalStaticField(java.lang.Object,java.lang.String) -> N
+    void setStaticCharField(java.lang.Class,java.lang.String,char) -> N0
+    boolean getBooleanField(java.lang.Object,java.lang.String) -> O
+    void setStaticDoubleField(java.lang.Class,java.lang.String,double) -> O0
+    byte getByteField(java.lang.Object,java.lang.String) -> P
+    void setStaticFloatField(java.lang.Class,java.lang.String,float) -> P0
+    char getCharField(java.lang.Object,java.lang.String) -> Q
+    void setStaticIntField(java.lang.Class,java.lang.String,int) -> Q0
+    java.lang.Class[] getClassesAsArray(java.lang.Class[]) -> R
+    void setStaticLongField(java.lang.Class,java.lang.String,long) -> R0
+    double getDoubleField(java.lang.Object,java.lang.String) -> S
+    void setStaticObjectField(java.lang.Class,java.lang.String,java.lang.Object) -> S0
+    int getFirstParameterIndexByType(java.lang.reflect.Member,java.lang.Class) -> T
+    void setStaticShortField(java.lang.Class,java.lang.String,short) -> T0
+    float getFloatField(java.lang.Object,java.lang.String) -> U
+    int getIntField(java.lang.Object,java.lang.String) -> V
+    long getLongField(java.lang.Object,java.lang.String) -> W
+    java.lang.String getMD5Sum(java.lang.String) -> X
+    int getMethodDepth(java.lang.String) -> Y
+    java.lang.ThreadLocal getMethodDepthCounter(java.lang.String) -> Z
+    byte[] assetAsByteArray(android.content.res.Resources,java.lang.String) -> a
+    java.lang.Object getObjectField(java.lang.Object,java.lang.String) -> a0
+    java.lang.Object callMethod(java.lang.Object,java.lang.String,java.lang.Class[],java.lang.Object[]) -> b
+    java.lang.reflect.Method getOverriddenMethod(java.lang.reflect.Method) -> b0
+    java.lang.Object callMethod(java.lang.Object,java.lang.String,java.lang.Object[]) -> c
+    java.util.Set getOverriddenMethods(java.lang.Class) -> c0
+    java.lang.Object callStaticMethod(java.lang.Class,java.lang.String,java.lang.Class[],java.lang.Object[]) -> d
+    java.lang.Class[] getParameterClasses(java.lang.ClassLoader,java.lang.Object[]) -> d0
+    java.lang.Object callStaticMethod(java.lang.Class,java.lang.String,java.lang.Object[]) -> e
+    int getParameterIndexByType(java.lang.reflect.Member,java.lang.Class) -> e0
+    void closeSilently(dalvik.system.DexFile) -> f
+    java.lang.Class[] getParameterTypes(java.lang.Object[]) -> f0
+    void closeSilently(java.io.Closeable) -> g
+    java.lang.String getParametersString(java.lang.Class[]) -> g0
+    void closeSilently(java.util.zip.ZipFile) -> h
+    short getShortField(java.lang.Object,java.lang.String) -> h0
+    int decrementMethodDepth(java.lang.String) -> i
+    boolean getStaticBooleanField(java.lang.Class,java.lang.String) -> i0
+    boolean fileContains(java.io.File,java.lang.String) -> j
+    byte getStaticByteField(java.lang.Class,java.lang.String) -> j0
+    de.robv.android.xposed.XC_MethodHook$Unhook findAndHookConstructor(java.lang.Class,java.lang.Object[]) -> k
+    char getStaticCharField(java.lang.Class,java.lang.String) -> k0
+    de.robv.android.xposed.XC_MethodHook$Unhook findAndHookConstructor(java.lang.String,java.lang.ClassLoader,java.lang.Object[]) -> l
+    double getStaticDoubleField(java.lang.Class,java.lang.String) -> l0
+    de.robv.android.xposed.XC_MethodHook$Unhook findAndHookMethod(java.lang.Class,java.lang.String,java.lang.Object[]) -> m
+    float getStaticFloatField(java.lang.Class,java.lang.String) -> m0
+    de.robv.android.xposed.XC_MethodHook$Unhook findAndHookMethod(java.lang.String,java.lang.ClassLoader,java.lang.String,java.lang.Object[]) -> n
+    int getStaticIntField(java.lang.Class,java.lang.String) -> n0
+    java.lang.Class findClass(java.lang.String,java.lang.ClassLoader) -> o
+    long getStaticLongField(java.lang.Class,java.lang.String) -> o0
+    java.lang.Class findClassIfExists(java.lang.String,java.lang.ClassLoader) -> p
+    java.lang.Object getStaticObjectField(java.lang.Class,java.lang.String) -> p0
+    java.lang.reflect.Constructor findConstructorBestMatch(java.lang.Class,java.lang.Class[]) -> q
+    short getStaticShortField(java.lang.Class,java.lang.String) -> q0
+    java.lang.reflect.Constructor findConstructorBestMatch(java.lang.Class,java.lang.Class[],java.lang.Object[]) -> r
+    java.lang.Object getSurroundingThis(java.lang.Object) -> r0
+    java.lang.reflect.Constructor findConstructorBestMatch(java.lang.Class,java.lang.Object[]) -> s
+    int incrementMethodDepth(java.lang.String) -> s0
+    java.lang.reflect.Constructor findConstructorExact(java.lang.Class,java.lang.Class[]) -> t
+    byte[] inputStreamToByteArray(java.io.InputStream) -> t0
+    java.lang.reflect.Constructor findConstructorExact(java.lang.Class,java.lang.Object[]) -> u
+    java.lang.Object newInstance(java.lang.Class,java.lang.Class[],java.lang.Object[]) -> u0
+    java.lang.reflect.Constructor findConstructorExact(java.lang.String,java.lang.ClassLoader,java.lang.Object[]) -> v
+    java.lang.Object newInstance(java.lang.Class,java.lang.Object[]) -> v0
+    java.lang.reflect.Constructor findConstructorExactIfExists(java.lang.Class,java.lang.Object[]) -> w
+    java.lang.Object removeAdditionalInstanceField(java.lang.Object,java.lang.String) -> w0
+    java.lang.reflect.Constructor findConstructorExactIfExists(java.lang.String,java.lang.ClassLoader,java.lang.Object[]) -> x
+    java.lang.Object removeAdditionalStaticField(java.lang.Class,java.lang.String) -> x0
+    java.lang.reflect.Field findField(java.lang.Class,java.lang.String) -> y
+    java.lang.Object removeAdditionalStaticField(java.lang.Object,java.lang.String) -> y0
+    java.lang.reflect.Field findFieldIfExists(java.lang.Class,java.lang.String) -> z
+    java.lang.Object setAdditionalInstanceField(java.lang.Object,java.lang.String,java.lang.Object) -> z0
+de.robv.android.xposed.XposedHelpers$1 -> u.dont.know.what.i.am.k$a:
+    java.util.concurrent.atomic.AtomicInteger initialValue() -> a
+de.robv.android.xposed.XposedHelpers$ClassNotFoundError -> u.dont.know.what.i.am.k$b:
+de.robv.android.xposed.XposedHelpers$InvocationTargetError -> u.dont.know.what.i.am.k$c:
+de.robv.android.xposed.XposedInit -> u.dont.know.what.i.am.l:
+    java.util.concurrent.atomic.AtomicBoolean modulesLoaded -> e
+    java.util.concurrent.atomic.AtomicBoolean bootstrapHooked -> d
+    java.lang.String TAG -> a
+    java.lang.String INSTANT_RUN_CLASS -> b
+    boolean disableResources -> c
+    void hookResources() -> a
+    void loadModule(java.lang.String,java.lang.String,java.lang.String,java.lang.ClassLoader) -> b
+    boolean needsToCloseFilesForFork() -> c
+de.robv.android.xposed.callbacks.IXUnhook -> u.dont.know.what.i.am.m:
+    void unhook() -> a
+    java.lang.Object getCallback() -> b
+de.robv.android.xposed.callbacks.XC_InitPackageResources -> u.dont.know.what.i.am.n:
+de.robv.android.xposed.callbacks.XC_InitPackageResources$InitPackageResourcesParam -> u.dont.know.what.i.am.n$a:
+    java.lang.String packageName -> c
+de.robv.android.xposed.callbacks.XC_LayoutInflated -> u.dont.know.what.i.am.o:
+    void handleLayoutInflated(de.robv.android.xposed.callbacks.XC_LayoutInflated$LayoutInflatedParam) -> e
+de.robv.android.xposed.callbacks.XC_LayoutInflated$LayoutInflatedParam -> u.dont.know.what.i.am.o$a:
+    android.view.View view -> c
+de.robv.android.xposed.callbacks.XC_LayoutInflated$Unhook -> u.dont.know.what.i.am.o$b:
+    de.robv.android.xposed.callbacks.XC_LayoutInflated this$0 -> c
+    java.lang.String resDir -> a
+    int id -> b
+    void unhook() -> a
+    java.lang.Object getCallback() -> b
+    de.robv.android.xposed.callbacks.XC_LayoutInflated getCallback() -> c
+    int getId() -> d
+de.robv.android.xposed.callbacks.XC_LoadPackage -> u.dont.know.what.i.am.p:
+de.robv.android.xposed.callbacks.XC_LoadPackage$LoadPackageParam -> u.dont.know.what.i.am.p$a:
+    android.content.pm.ApplicationInfo appInfo -> f
+    boolean isFirstApplication -> g
+    java.lang.String packageName -> c
+    java.lang.ClassLoader classLoader -> e
+    java.lang.String processName -> d
+de.robv.android.xposed.callbacks.XCallback -> u.dont.know.what.i.am.q:
+de.robv.android.xposed.callbacks.XCallback$Param -> u.dont.know.what.i.am.q$a:
+    java.lang.Object[] callbacks -> a
+    android.os.Bundle extra -> b
+    android.os.Bundle getExtra() -> a
+    java.lang.Object getObjectExtra(java.lang.String) -> b
+    void setObjectExtra(java.lang.String,java.lang.Object) -> c
+de.robv.android.xposed.callbacks.XCallback$Param$SerializeWrapper -> u.dont.know.what.i.am.q$a$a:
+de.robv.android.xposed.services.BaseService -> u.dont.know.what.i.am.r:
+    int F_OK -> d
+    int W_OK -> b
+    int X_OK -> c
+    int R_OK -> a
+    boolean checkFileAccess(java.lang.String,int) -> a
+    boolean checkFileExists(java.lang.String) -> b
+    void ensureAbsolutePath(java.lang.String) -> c
+    de.robv.android.xposed.services.FileResult getFileInputStream(java.lang.String,long,long) -> d
+    java.io.InputStream getFileInputStream(java.lang.String) -> e
+    long getFileModificationTime(java.lang.String) -> f
+    long getFileSize(java.lang.String) -> g
+    boolean hasDirectFileAccess() -> h
+    de.robv.android.xposed.services.FileResult readFile(java.lang.String,int,int,long,long) -> i
+    de.robv.android.xposed.services.FileResult readFile(java.lang.String,long,long) -> j
+    byte[] readFile(java.lang.String) -> k
+    de.robv.android.xposed.services.FileResult statFile(java.lang.String) -> l
+    void throwCommonIOException(int,java.lang.String,java.lang.String,java.lang.String) -> m
+de.robv.android.xposed.services.DirectAccessService -> u.dont.know.what.i.am.s:
+    boolean checkFileAccess(java.lang.String,int) -> a
+    boolean checkFileExists(java.lang.String) -> b
+    de.robv.android.xposed.services.FileResult getFileInputStream(java.lang.String,long,long) -> d
+    java.io.InputStream getFileInputStream(java.lang.String) -> e
+    boolean hasDirectFileAccess() -> h
+    de.robv.android.xposed.services.FileResult readFile(java.lang.String,int,int,long,long) -> i
+    de.robv.android.xposed.services.FileResult readFile(java.lang.String,long,long) -> j
+    byte[] readFile(java.lang.String) -> k
+    de.robv.android.xposed.services.FileResult statFile(java.lang.String) -> l
+de.robv.android.xposed.services.FileResult -> u.dont.know.what.i.am.t:
+    byte[] content -> a
+    long mtime -> d
+    long size -> c
+    java.io.InputStream stream -> b

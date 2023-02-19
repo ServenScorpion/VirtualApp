@@ -5,20 +5,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v7.widget.Toolbar
+
+    <include layout="@layout/head_top" />
+<!--    <androidx.appcompat.widget.Toolbar
         android:id="@+id/clone_app_tool_bar"
         android:layout_width="match_parent"
+        android:background="@color/color_6bc196"
         android:layout_height="?attr/actionBarSize">
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/clone_app_tab_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:tabMode="scrollable" />
 
-    </android.support.v7.widget.Toolbar>
+    </androidx.appcompat.widget.Toolbar>-->
 
-    <android.support.v4.view.ViewPager
+<!--    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/clone_app_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />-->
+    <com.carlos.widgets.NoSwipeViewPager
         android:id="@+id/clone_app_view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

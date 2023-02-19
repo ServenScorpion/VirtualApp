@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="color_6bc196">#6bc196</color>
+    <color name="transparent">#00000000</color>
+    <color name="black_20_transparent">#55000000</color>
+
+    <color name="md_transparent">#00FFFFFF</color>
+    <color name="gray9">#333333</color>
+    <color name="gray">#D0D0D0</color>
+
+    <color name="black2">#252525</color>
+    <color name="black3">#606060</color>
+    <color name="gray4">#686868</color>
+    <color name="gray2">#C0C0C0</color>
+    <color name="dialogColorPrimary">#a0607191</color>
+    <color name="dialogColorPrimary2">#50607191</color>
+
+    <color name="colorPrimary">#3F51B5</color>
+
+</resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical">
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/select_add_switch" />
+    <EditText
+        android:id="@+id/edit_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/frame_with_gray_edge_white"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:text="1"
+        android:textColor="#000"
+        android:textSize="14dp" />
+    <ImageView
+        android:id="@+id/iv_minus"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/select_minus_switch" />
+</LinearLayout>

@@ -26,7 +26,7 @@
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edt_lat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,7 +50,7 @@
         android:layout_marginBottom="10dp"
         android:orientation="horizontal">
 
-        <android.support.v7.widget.AppCompatEditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/edt_lon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

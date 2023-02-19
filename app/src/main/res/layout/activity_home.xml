@@ -1,164 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/color_6bc196">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+        <include layout="@layout/head_top"/>
+<!--
 
-
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
+            android:layout_height="56dp"
+            android:background="@color/color_6bc196"
             android:gravity="start"
             android:orientation="horizontal"
-            fab:layout_heightPercent="12%">
+            >
+
+            <LinearLayout
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:paddingLeft="2dp"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/home_menu"
+                    android:layout_width="@dimen/dp_36"
+                    android:layout_height="@dimen/dp_36"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_title_menu" />
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="center|start"
-                android:text="@string/app_name"
-                android:textColor="@android:color/black"
-                android:textSize="22sp" />
+                android:text="@string/application_title"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:textColor="@android:color/white"
+                android:textSize="24sp" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center|end"
-                android:orientation="horizontal"
-                android:visibility="visible">
+        </RelativeLayout>
+-->
 
-                <io.virtualapp.widgets.MaterialRippleLayout
-                    android:layout_width="60dp"
-                    android:layout_height="60dp">
-
-                    <ImageView
-                        android:id="@+id/home_menu"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:padding="15dp"
-                        android:src="@drawable/ic_menu" />
-                </io.virtualapp.widgets.MaterialRippleLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:background="#c6c6c6"
-            android:layout_height="1px"/>
-
-        <io.virtualapp.widgets.MarqueeTextView
-            android:id="@+id/tipsNotifiction"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:layout_gravity="center"
-            android:focusableInTouchMode="true"
-            android:gravity="center_vertical"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:singleLine="true"
-            android:textColor="@color/black2"
-            android:textSize="14sp"/>
-
-
-        <FrameLayout
-            android:padding="10dp"
-            android:background="#efefef"
-            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@drawable/shape_sheet_dialog_bg"
             android:layout_height="match_parent">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/home_launcher"
+            <com.carlos.widgets.MarqueeTextView
+                android:id="@+id/tipsNotifiction"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:scrollbars="vertical"
-                tools:listitem="@layout/item_launcher_app" />
-
-            <io.virtualapp.widgets.TwoGearsView
-                android:id="@+id/pb_loading_app"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
                 android:layout_gravity="center"
-                android:layout_marginBottom="30dp" />
-        </FrameLayout>
-    </LinearLayout>
+                android:focusableInTouchMode="true"
+                android:gravity="center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:layout_marginStart="@dimen/dp_15"
+                android:layout_marginEnd="@dimen/dp_15"
+                android:textColor="#000000"
+                android:textSize="18sp"/>
+            <FrameLayout
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/bottom_area"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom|center"
-        android:baselineAligned="false"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:weightSum="1">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/home_launcher"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:scrollbars="vertical"
+                    tools:listitem="@layout/item_launcher_app" />
 
-        <LinearLayout
-            android:id="@+id/create_shortcut_area"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <com.carlos.widgets.TwoGearsView
+                    android:id="@+id/pb_loading_app"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="30dp" />
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_shortcut" />
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/no_application_list"
+                    android:layout_width="@dimen/dp_144"
+                    android:layout_height="@dimen/dp_144"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="40dp"
+                    android:padding="8dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/no_application_list" />
 
-            <TextView
-                android:id="@+id/enter_app_setting_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/colorPrimary"
-                android:gravity="center|start"
-                android:padding="5dp"
-                android:text="@string/app_settings"
-                android:textColor="@android:color/black" />
-
+                <include layout="@layout/main_fun_btn"/>
+            </FrameLayout>
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/delete_app_area"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/ic_crash" />
-
-            <TextView
-                android:id="@+id/delete_app_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@color/colorPrimary"
-                android:gravity="center|start"
-                android:padding="5dp"
-                android:text="@string/delete"
-                android:textColor="@android:color/black" />
-        </LinearLayout>
-
 
     </LinearLayout>
 
-</FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
