@@ -3,7 +3,7 @@
 本项目纯属供大家学习使用,有疑问请 <br>
 [ 试用APK程序 ](https://github.com/ServenScorpion/VirtualApp/blob/master/release/app-2.3.2.apk)<br>
 Email  : qixie0306@gmail.com  <br>
-Telegram （TG）: https://t.me/singular_point_scorpion <br>
+Telegram （TG）: [https://t.me/serven_scorpion](https://t.me/serven_scorpion) <br>
 
 本项目HOST 是32 位，plugin 是64位， 可以将 VAConfig.gradle 文件中 VA_VERSION_64 配置成true 就可以奖host 变成64位
 
