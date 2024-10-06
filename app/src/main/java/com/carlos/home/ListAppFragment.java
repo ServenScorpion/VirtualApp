@@ -21,7 +21,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
 import androidx.core.content.FileProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -30,14 +29,11 @@ import com.carlos.R;
 import com.carlos.common.VCommends;
 import com.carlos.common.ui.activity.base.VFragment;
 import com.carlos.common.utils.FileTools;
-import com.carlos.common.utils.HVLog;
 import com.carlos.common.utils.InstallTools;
 import com.carlos.common.utils.ResponseProgram;
 import com.carlos.common.widget.MainFunBtn;
-import com.carlos.common.widget.MirrorDialog;
-import com.carlos.common.widget.TextProgressBar;
 import com.carlos.common.widget.toast.Toasty;
-import com.carlos.home.models.AppData;
+import com.kook.common.utils.HVLog;
 import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.helper.compat.NativeLibraryHelperCompat;
 import com.lody.virtual.helper.utils.FileUtils;
@@ -193,14 +189,15 @@ public class ListAppFragment extends VFragment<ListAppContract.ListAppPresenter>
                 }).done((isNeed64Proces)->{
                     mProgressBar.setVisibility(View.GONE);
                     HVLog.d("安装了拓展插件 "+installAppByPackageName+"    需要启动64 进程"+isNeed64Proces);
-                    if (installAppByPackageName){
+                    /**最新默认64 了不需要安装插件了*/
+                    /*if (installAppByPackageName){
                         ((ListAppActivity)getActivity()).startBit64App(null,1107);
                     }else {
                         if (isNeed64Proces) {
                             installApkWindow(ACTION_INSTALL_PLUGIN);
                             return;
                         }
-                    }
+                    }*/
 
                     if (!mAdapter.isIndexSelected(position)) {
                         if (count >= 9) {

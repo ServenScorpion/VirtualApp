@@ -2,11 +2,9 @@ package com.carlos.home;
 
 import android.app.Activity;
 
-import com.carlos.common.utils.HVLog;
 import com.carlos.home.repo.AppDataSource;
 import com.carlos.home.repo.AppRepository;
-
-import java.io.File;
+import com.kook.common.utils.HVLog;
 
 /**
  * @author LodyChen

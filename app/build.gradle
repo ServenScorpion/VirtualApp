@@ -28,7 +28,7 @@ android {
         //renderscriptTargetApi 19
         //renderscriptSupportModeEnabled true
 
-        multiDexEnabled false
+        multiDexEnabled true
         vectorDrawables.useSupportLibrary = true
 
         buildConfigField 'String', 'PACKAGE_NAME', '"' + rootProject.ext.PACKAGE_NAME + '"'
@@ -79,19 +79,25 @@ android {
     }
 
     lintOptions {
-        checkReleaseBuilds false
-        // Or, if you prefer, you can continue to check for errors in release builds,
-        // but continue the build even when errors are found:
+        abortOnError false  // 如果发现 lint 错误，不中止编译
+        checkReleaseBuilds false  // 禁用发布版本的 lint 检查
+        xmlReport true  // 生成 XML 格式的报告
+        htmlReport true  // 生成 HTML 格式的报告
+    }
+    lintOptions {
         abortOnError false
     }
-
-/*    packagingOptions {
+    packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/LICENSE'
         exclude 'META-INF/LICENSE.txt'
         exclude 'META-INF/NOTICE.txt'
-    }*/
+
+        // 解决资源冲突
+       // exclude 'META-INF/metadata.jvm.kotlin_module'
+        //exclude 'META-INF/*.kotlin_module' // 也可以尝试排除所有相关的kotlin_module文件
+    }
 }
 
 
@@ -121,21 +127,27 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.2.5'
     annotationProcessor 'androidx.room:room-compiler:2.2.5'
 
-    //compileOnly 'androidx.recyclerview:recyclerview:1.0.0'
-    //compileOnly 'androidx.annotation:annotation:1.2.0'
-    //compileOnly 'androidx.constraintlayout:constraintlayout:2.1.2'
-    //compileOnly 'androidx.appcompat:appcompat:1.3.0-alpha02'
-    //compileOnly 'com.android.support:multidex:1.0.3'
-    //compileOnly 'com.github.bumptech.glide:glide:4.7.1'
-    //compileOnly 'com.google.android.material:material:1.0.0'
-    //compileOnly 'com.alibaba:fastjson:1.2.59'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.21'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"//导入Retrofit
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"//转换器，请求结果转换成VO
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"//转换器，请求结果转换成原始json字符串
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"//配合Rxjava使用，将retofit的call映射成Observable
+
+    /*okhttp 网络 请求封装包*/
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
+
+    //google 的gson 库
+    implementation 'com.google.code.gson:gson:2.8.4'
 
     //Promise Support
     implementation 'org.jdeferred:jdeferred-android-aar:1.2.4'
 
     //StringFog
     implementation 'com.github.megatronking.stringfog:xor:1.1.0'
-
 
     //fastjson
     implementation 'com.alibaba:fastjson:1.2.59'
@@ -144,6 +156,4 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     implementation files('libs/pinyin4j-2.5.0.jar')
 
-    // aar 包里面缺下面的包
-    implementation 'com.zhy:okhttputils:2.6.2'
 }

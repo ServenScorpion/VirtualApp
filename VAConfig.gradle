@@ -5,13 +5,14 @@ ext {
     PACKAGE_NAME                = "com.carlos.multiapp"
     EXT_PACKAGE_NAME            = "com.carlos.multiapp.ext"
 
-    VA_MAIN_PACKAGE_32BIT       = true
+
+    VA_MAIN_PACKAGE_32BIT       = false
     VA_ACCESS_PERMISSION_NAME   = "com.carlos.multiapp.permission.SAFE_ACCESS"
     VA_AUTHORITY_PREFIX         = "com.carlos.multiapp"
     VA_EXT_AUTHORITY_PREFIX     = "com.carlos.multiapp"
     VA_VERSION                  = '2.3.2'
-    VA_VERSION_CODE             = 23200
-    VA_FULL_EXT                 = false
+    VA_VERSION_CODE             = 23202
+    VA_FULL_EXT                 = true //如果这个是true ,那么将32里面的一些代码都会打包到插件apk 里面来
 
     signing_storeFile           = "${rootDir}/security/scorpion.jks"
     signing_storePassword       = "scorpion123"

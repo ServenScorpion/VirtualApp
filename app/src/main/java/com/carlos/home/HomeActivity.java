@@ -1,15 +1,15 @@
 package com.carlos.home;
 
+import static com.carlos.common.VCommends.REQUEST_SELECT_XAPK;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Application;
 import android.app.Dialog;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.PackageParser;
 import android.content.res.AssetFileDescriptor;
 import android.content.res.AssetManager;
 import android.net.Uri;
@@ -19,12 +19,10 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.ContextThemeWrapper;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -43,26 +41,21 @@ import com.carlos.common.clouddisk.http.HttpWorker;
 import com.carlos.common.clouddisk.listview.FileItem;
 import com.carlos.common.ui.UIConstant;
 import com.carlos.common.ui.activity.MirrorActivity;
-import com.carlos.common.device.DeviceInfo;
 import com.carlos.common.imagepicker.PhotoSelector;
-import com.carlos.common.network.core.AuthRequest;
-import com.carlos.common.network.core.Constant;
-import com.carlos.common.network.core.MessageEntity;
 import com.carlos.common.ui.activity.SettingActivity;
 import com.carlos.common.ui.activity.base.VActivity;
 import com.carlos.common.ui.adapter.decorations.ItemOffsetDecoration;
 import com.carlos.common.utils.FileTools;
-import com.carlos.common.utils.HVLog;
+import com.carlos.common.utils.PathUtils;
 import com.carlos.common.utils.ResponseProgram;
-import com.carlos.common.utils.SPTools;
-import com.carlos.common.widget.toast.Toasty;
+import com.carlos.common.utils.xapk.XAPKInstaller;
 import com.carlos.home.XposedManager.XposedManagerActivity;
 import com.carlos.utils.FileUtils1;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.kook.common.utils.HVLog;
 import com.lody.virtual.GmsSupport;
 import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.client.ipc.VActivityManager;
-import com.lody.virtual.helper.compat.PackageParserCompat;
 import com.lody.virtual.helper.utils.VLog;
 import com.lody.virtual.oem.OemPermissionHelper;
 import com.carlos.common.ui.activity.abs.nestedadapter.SmartRecyclerAdapter;
@@ -79,7 +72,6 @@ import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 
@@ -90,8 +82,6 @@ import com.carlos.widgets.MarqueeTextView;
 import com.lody.virtual.remote.InstalledAppInfo;
 import com.lody.virtual.remote.VAppInstallerParams;
 import com.lody.virtual.remote.VAppInstallerResult;
-
-import mirror.android.content.pm.split.SplitDependencyLoader;
 
 /**
  * @author LodyChen
@@ -153,8 +143,28 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
         initLaunchpad();
         initMenu();
         HomePresenterImpl homePresenter = new HomePresenterImpl(this);
+        boolean gms = VirtualCore.get().isAppInstalled("com.google.android.gms");
+        boolean gsf = VirtualCore.get().isAppInstalled("com.google.android.gsf");
+        boolean vending = VirtualCore.get().isAppInstalled("com.android.vending");
+        boolean games = VirtualCore.get().isAppInstalled("com.google.android.play.games");
+
+        HVLog.d("APP 安装数量："+homePresenter.getAppCount()+"   gms:"+gms+"   gsf:"+gsf+"   vending:"+vending+"    games:"+games);
         mPresenter.start();
         verifyStoragePermissions(this);
+
+    }
+
+    public static void copyFdToFile(FileDescriptor src, File dst) throws IOException {
+        FileChannel inChannel = new FileInputStream(src).getChannel();
+        FileChannel outChannel = new FileOutputStream(dst).getChannel();
+        try {
+            inChannel.transferTo(0, inChannel.size(), outChannel);
+        } finally {
+            if (inChannel != null)
+                inChannel.close();
+            if (outChannel != null)
+                outChannel.close();
+        }
     }
 
 
@@ -219,14 +229,15 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
             ListAppActivity.gotoListApp(this,ListAppActivity.ACTION_APP_MANAGER);
             return true;
         });
-        menu.add("激活程序").setIcon(R.drawable.ic_activation).setOnMenuItemClickListener(item -> {
+        /*menu.add("激活程序").setIcon(R.drawable.ic_activation).setOnMenuItemClickListener(item -> {
             activateInputWindow();
             return true;
-        });
+        });*/
         menu.add("设置").setIcon(R.drawable.ic_settings).setOnMenuItemClickListener(item -> {
             startActivity(new Intent(this, SettingActivity.class));
             return true;
         });
+
 
         mMenuView.setOnClickListener(v -> mPopupMenu.show());
     }
@@ -271,21 +282,21 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
         builder.setView(view1);
         Dialog dialog = builder.show();
         dialog.setCanceledOnTouchOutside(false);
-        String pointCard = SPTools.getString(this, Constant.TextTag.POINT_CARD_KEY);
+        //String pointCard = SPTools.getString(this, Constant.TextTag.POINT_CARD_KEY);
 
-        HVLog.d("pointCard:"+pointCard);
+       /* HVLog.d("pointCard:"+pointCard);
 
         EditText editText1 = view1.findViewById(R.id.edt_activate);
         if (!TextUtils.isEmpty(pointCard)){
             editText1.setText(pointCard);
-        }
+        }*/
 
         dialog.setCancelable(false);
         view1.findViewById(R.id.btn_cancel).setOnClickListener((v2) -> dialog.dismiss());
         view1.findViewById(R.id.btn_ok).setOnClickListener((v2) -> {
 
             try {
-                String activate_num = editText1.getText().toString();
+                /*String activate_num = editText1.getText().toString();
                 if (TextUtils.isEmpty(activate_num)){
                     Toast.makeText(getContext(),"激活码不能为空",Toast.LENGTH_LONG).show();
                     return;
@@ -323,7 +334,7 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
                         }
                         return;
                     }
-                });
+                });*/
             } catch (Exception e) {
             }
         });
@@ -341,6 +352,17 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
         wrap.setFooterView(footer);
         mLauncherView.setAdapter(wrap);
         mLauncherView.addItemDecoration(new ItemOffsetDecoration(this, R.dimen.desktop_divider));
+        //ItemTouchHelper touchHelper = new ItemTouchHelper(new LauncherTouchCallback());
+        //touchHelper.attachToRecyclerView(mLauncherView);
+/*        mLaunchpadAdapter.setAppClickListener((pos, data) -> {
+            if (!data.isLoading()) {
+                if (data instanceof AddAppButton) {
+                    onAddAppButtonClick();
+                }
+                mLaunchpadAdapter.notifyItemChanged(pos);
+                mPresenter.launchApp(data);
+            }
+        });*/
         mLaunchpadAdapter.setAppClickListener(this);
 
     }
@@ -358,6 +380,11 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
                 .setPositiveButton(android.R.string.yes, (dialog, which) -> mPresenter.deleteApp(data))
                 .setNegativeButton(android.R.string.no, null)
                 .show();
+    }
+
+    public void enterAppSetting(int position) {
+        AppData model = mLaunchpadAdapter.getList().get(position);
+        enterAppSetting(model);
     }
 
     public void enterAppSetting(AppData data) {
@@ -403,6 +430,11 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
 
     @Override
     public void showOverlayPermissionDialog() {
+      /*  new AlertDialog.Builder(this).setTitle((CharSequence) "Notice").setMessage((CharSequence) "You must to grant overlay permission to allowed launch activity background.").setCancelable(false).setNegativeButton((CharSequence) "GO", (DialogInterface.OnClickListener) new DialogInterface.OnClickListener() {
+            public final void onClick(DialogInterface dialogInterface, int i) {
+                HomeActivity.this.lambda$showOverlayPermissionDialog$11$HomeActivity(dialogInterface, i);
+            }
+        }).show();*/
     }
 
     @Override
@@ -499,6 +531,14 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
                     chooseFile.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);//设置可以多选文件
                     Intent intent = Intent.createChooser(chooseFile, "title");
                     startActivityForResult(intent, CHOOSE_FILE_CODE);
+                   /* File gmsDir = new File(Environment.getExternalStorageDirectory() + "/GMS3/");
+                    if (gmsDir.exists()) {
+                        GmsSupport.installGApps(gmsDir, 0);
+                        mPresenter.dataChanged();
+                        Toast.makeText(this, "done!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(this, "put your apks to " + gmsDir + " first.", Toast.LENGTH_SHORT).show();
+                    }*/
                 })
                 .setNeutralButton(android.R.string.cancel, null)
                 .setCancelable(false)
@@ -616,7 +656,8 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
 
         }else if (requestCode == CHOOSE_FILE_CODE && resultCode == Activity.RESULT_OK){
             ClipData clipData = data.getClipData();
-            HVLog.e("CHOOSE_FILE_CODE :"+CHOOSE_FILE_CODE + "    clipData:"+clipData);
+            Uri dataData = data.getData();
+            HVLog.e("CHOOSE_FILE_CODE :"+CHOOSE_FILE_CODE + "    clipData:"+clipData+"    data:"+data.toString()+"    dataData:"+dataData);
             if (clipData != null) {
                 ResponseProgram.defer().when(()->{
                     try {
@@ -650,7 +691,40 @@ public class HomeActivity extends VActivity implements HomeContract.HomeView, La
                         Toast.makeText(this, "done!", Toast.LENGTH_SHORT).show();
                     });
                 });
+            }else if (dataData != null){
+                ResponseProgram.defer().when(()->{
+                    try {
+                            String path = FileUtils1.getPath(this, dataData);
+                            HVLog.e(" dataData   path: "+path+"    ");
 
+                            VirtualCore core = VirtualCore.get();
+                            VAppInstallerParams params = new VAppInstallerParams(VAppInstallerParams.FLAG_INSTALL_OVERRIDE_NO_CHECK);
+                            VAppInstallerResult result = core.installPackage(Uri.fromFile(new File(path)), params);
+
+                            if (result.status == VAppInstallerResult.STATUS_SUCCESS) {
+                                getHandler().post(()->{
+                                    Toast.makeText(this, result.packageName+" done!", Toast.LENGTH_SHORT).show();
+                                });
+                            } else {
+                                VLog.w(TAG, "install gms pkg fail:" + path + ",error : " + result.status);
+                            }
+                    }catch (Exception e){
+                        HVLog.printException(e);
+                    }
+                }).done((VOID)->{
+                    mPresenter.dataChanged();
+                    getHandler().post(()->{
+                        Toast.makeText(this, "done!", Toast.LENGTH_SHORT).show();
+                    });
+                });
+            }
+        }else if (requestCode == REQUEST_SELECT_XAPK && resultCode == RESULT_OK) {
+            if (data != null && data.getData() != null) {
+                Uri selectedFileUri = data.getData();
+                HVLog.d("selectedFileUri:"+selectedFileUri);
+                String pathFromURI = PathUtils.getRealPathFromURI(this, selectedFileUri);
+                HVLog.d("pathFromURI:"+pathFromURI);
+                XAPKInstaller.doInstallApk(this,pathFromURI);
             }
         }
 

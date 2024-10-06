@@ -60,6 +60,11 @@ public class AppSettingActivity extends VActivity {
         });
     }
 
+    @Override
+    protected boolean isCheckLog() {
+        return true;
+    }
+
     private void cleanAppData() {
         boolean res = VirtualCore.get().cleanPackageData(mPkgInfo.packageName, mUserId);
         Toast.makeText(this, "clean app data " + (res ? "success." : "failed."), Toast.LENGTH_SHORT).show();

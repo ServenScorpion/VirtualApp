@@ -3,24 +3,13 @@ package com.carlos.home;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Environment;
-import android.widget.Toast;
-
-import androidx.appcompat.app.AlertDialog;
 
 import com.carlos.R;
-import com.carlos.common.utils.HVLog;
 import com.carlos.common.utils.ResponseProgram;
+import com.kook.common.utils.HVLog;
 import com.lody.virtual.client.core.VirtualCore;
-import com.lody.virtual.client.ipc.VActivityManager;
-import com.lody.virtual.client.ipc.VPackageManager;
-import com.lody.virtual.client.stub.RequestExternalStorageManagerActivity;
-import com.lody.virtual.helper.compat.BuildCompat;
-import com.lody.virtual.helper.compat.PermissionCompat;
 import com.lody.virtual.open.MultiAppHelper;
 import com.lody.virtual.remote.InstalledAppInfo;
 import com.carlos.home.models.AppData;
@@ -34,9 +23,6 @@ import java.util.List;
 
 import com.carlos.home.models.PackageAppData;
 import com.lody.virtual.remote.VAppInstallerResult;
-import com.lody.virtual.server.extension.VExtPackageAccessor;
-
-import static com.carlos.common.VCommends.REQUEST_PERMISSION;
 
 
 /**

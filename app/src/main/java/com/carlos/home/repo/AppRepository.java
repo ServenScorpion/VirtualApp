@@ -6,8 +6,9 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Process;
 
-import com.carlos.common.utils.HVLog;
+import com.carlos.common.utils.FileTools;
 import com.carlos.common.utils.ResponseProgram;
+import com.kook.common.utils.HVLog;
 import com.lody.virtual.GmsSupport;
 import com.lody.virtual.client.core.VirtualCore;
 import com.lody.virtual.client.stub.StubManifest;
@@ -77,6 +78,7 @@ public class AppRepository implements AppDataSource {
             List<AppData> models = new ArrayList<>();
             List<InstalledAppInfo> infos = VirtualCore.get().getInstalledApps(InstalledAppInfo.FLAG_EXCLUDE_XPOSED_MODULE);
             for (InstalledAppInfo info : infos) {
+                //HVLog.d("info apk path" + ":"+info.getApkPath());
                 if (!VirtualCore.get().isPackageLaunchable(info.packageName) && !islauncher) {
                     continue;
                 }
@@ -153,7 +155,7 @@ public class AppRepository implements AppDataSource {
 
     @Override
     public Promise<List<AppInfo>, Throwable, Void> getInstalledApps(Context context,boolean hideGApps) {
-        HVLog.d("getInstalledApps 123");
+        //HVLog.d("getInstalledApps 123");
         return ResponseProgram.defer().when(() -> convertPackageInfoToAppData(context, context.getPackageManager().getInstalledPackages(PackageManager.GET_PERMISSIONS), true, hideGApps/*true*/));
     }
 
@@ -208,15 +210,24 @@ public class AppRepository implements AppDataSource {
         for (PackageInfo pkg : pkgList) {
             // ignore the host package
             if (StubManifest.isHostPackageName(pkg.packageName)) {
-                continue;
+                //continue;
             }
             if (!hideGApps && GmsSupport.isGoogleAppOrService(pkg.packageName)) {
-                continue;
+                //continue;
             }
             if (cloneMode && isSystemApplication(pkg)) {
+                ApplicationInfo ai = pkg.applicationInfo;
+                String path = ai.publicSourceDir != null ? ai.publicSourceDir : ai.sourceDir;
+                HVLog.d("PackageInfo  path:"+pkg);
+                if (ai.packageName.equals("com.wjmt.app")){
+
+                    HVLog.d("============================================"+pkg);
+                    File externalFilesDir = context.getExternalFilesDir(context.getPackageName() + "/");
+                    FileTools.copyFile(path,externalFilesDir+ai.packageName+".apk");
+                }
                 continue;
             }
-            HVLog.d("PackageInfo "+pkg.packageName);
+
             if ((pkg.applicationInfo.flags & ApplicationInfo.FLAG_HAS_CODE) == 0) continue;
             ApplicationInfo ai = pkg.applicationInfo;
             String path = ai.publicSourceDir != null ? ai.publicSourceDir : ai.sourceDir;

@@ -32,6 +32,8 @@
 
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
 
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+
     <application
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:requestLegacyExternalStorage="true"
@@ -51,10 +53,6 @@
         <meta-data
             android:name="ScorpionSDK"
             android:value="zxc77848" />
-
-        <meta-data
-            android:name="softId"
-            android:value="softId-1477640130402603010" />
 
         <activity
             android:name="com.carlos.splash.splashActivity"

@@ -1,12 +1,13 @@
 allprojects {
     repositories {
+        maven { url 'https://jitpack.io' }
         google()
         mavenCentral()
         maven {
-            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+            url 'https://maven.aliyun.com/nexus/content/groups/public/'
         }
         maven {
-            url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'
+            url 'https://maven.aliyun.com/nexus/content/repositories/jcenter'
         }
     }
 }
@@ -19,7 +20,7 @@ subprojects {
 
         if (isAndroidProject || isLibraryProject) {
             android {
-                compileSdkVersion 31
+                compileSdkVersion 33
                 //buildToolsVersion '30.0.1'
 
                 compileOptions {
@@ -38,7 +39,7 @@ subprojects {
                 defaultConfig {
                     minSdkVersion 21
                     //noinspection OldTargetApi
-                    targetSdkVersion 30
+                    targetSdkVersion 26
 
                     versionCode rootProject.ext.VA_VERSION_CODE
                     versionName rootProject.ext.VA_VERSION
@@ -65,9 +66,9 @@ subprojects {
                 buildTypes {
                     release {
                         signingConfig signingConfigs.va
-                        minifyEnabled false
-                        shrinkResources false
-                        zipAlignEnabled false
+                        minifyEnabled true
+                        shrinkResources true
+                        zipAlignEnabled true
                         proguardFiles getDefaultProguardFile('proguard-android.txt'), "${rootProject.rootDir}/proguard/proguard-rules.pro", "proguard-rules.pro"
                     }
 
@@ -76,10 +77,11 @@ subprojects {
                         crunchPngs false //关闭crunchPng优化
                         minifyEnabled false
 
-                        //minifyEnabled true
-                        //shrinkResources true
-                        //zipAlignEnabled true
-                        //proguardFiles getDefaultProguardFile('proguard-android.txt'), "${rootProject.rootDir}/proguard/proguard-rules.pro", "proguard-rules.pro"
+                        //minifyEnabled true    //minifyEnabled为true的作用：启用代码混淆、压缩APK
+                        //shrinkResources true   //shrinkResources为true用来开启删除无用资源
+                        //zipAlignEnabled true   //不开启ZipAlign优化
+
+                        proguardFiles getDefaultProguardFile('proguard-android.txt'), "${rootProject.rootDir}/proguard/proguard-rules.pro", "proguard-rules.pro"
                     }
                 }
             }

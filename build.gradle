@@ -4,12 +4,13 @@ apply from: 'AppConfig.gradle'
 
 buildscript {
     repositories {
+        jcenter()
         google()
         mavenCentral()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.android.tools.build:gradle:7.2.0'
         classpath 'com.android.tools.build:gradle-experimental:0.11.1'
         classpath files('./security/messProguard.jar')
         classpath 'com.github.megatronking.stringfog:gradle-plugin:2.2.1'

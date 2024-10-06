@@ -8,14 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.carlos.R;
-import com.carlos.common.utils.HVLog;
 import com.carlos.common.utils.InstallTools;
 import com.carlos.common.utils.ResponseProgram;
 import com.carlos.common.widget.LabelView;
@@ -35,6 +33,7 @@ import java.util.Map;
 
 import com.carlos.home.models.PackageAppData;
 import com.carlos.widgets.DragSelectRecyclerViewAdapter;
+import com.kook.common.utils.HVLog;
 
 /**
  * @author LodyChen

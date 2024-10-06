@@ -9,7 +9,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.carlos.R;
-import com.carlos.common.utils.HVLog;
 
 import java.util.List;
 
@@ -18,6 +17,7 @@ import com.carlos.common.widget.LabelView;
 import com.carlos.home.models.AppData;
 import com.carlos.home.models.MultiplePackageAppData;
 import com.carlos.widgets.LauncherIconView;
+import com.kook.common.utils.HVLog;
 
 /**
  * @author LodyChen
