@@ -77,7 +77,6 @@ gradle.taskGraph.afterTask { task ->
                         toFile.getParentFile().mkdirs()
                         toFile.createNewFile()
                     }
-//                    soFile.delete()
                     println("copy : " + soFile.path)
                 }
             }
@@ -86,11 +85,9 @@ gradle.taskGraph.afterTask { task ->
                 if (soFile.name.endsWith("v++.so")) {
                     def toFile = new File(numberDir, "lib/arm64-v8a/" + soFile.name)
                     GFileUtils.copyFile(soFile, toFile)
-//                    soFile.delete()
                     println("copy : " + soFile.path)
                 }
             }
-//            soDir.delete()
         }
     }
 }
