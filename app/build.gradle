@@ -18,6 +18,7 @@ android {
             keyPassword rootProject.ext.signing_keyPassword
         }
     }
+    
     defaultConfig {
         applicationId rootProject.ext.PACKAGE_NAME
         //minSdkVersion 15
