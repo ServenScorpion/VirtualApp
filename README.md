@@ -4,7 +4,7 @@
 [ 试用APK程序 ](https://github.com/ServenScorpion/VirtualApp/blob/master/release/app-2.3.2.apk)<br>
 Email  : qixie0306@gmail.com  <br>
 WeChat : [serven_scorpion](serven_scorpion) <br>
-Telegram : [https://t.me/kook_scorpion](https://t.me/kook_scorpion)<br>
+Telegram : [https://t.me/serven_scorpion](https://t.me/serven_scorpion) <br>
 
 请大家给我点一下右上角的 ☆ 感谢
 
