@@ -7,6 +7,3 @@ WeChat : [serven_scorpion](serven_scorpion) <br>
 Telegram : [https://t.me/serven_scorpion](https://t.me/serven_scorpion) <br>
 
 请大家给我点一下右上角的 ☆ 感谢
-
-
-https://t.me/kook_scorpion
