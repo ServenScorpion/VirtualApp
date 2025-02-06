@@ -6,4 +6,4 @@ Email  : qixie0306@gmail.com  <br>
 WeChat : [serven_scorpion](serven_scorpion) <br>
 Telegram : [https://t.me/serven_scorpion](https://t.me/serven_scorpion) <br>
 
-请大家给我点一下右上角的 ☆ 感谢
+请大家给我点一下右上角的 ☆ 加快 15 的浅浅适配，感谢
