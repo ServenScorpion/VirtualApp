@@ -10,7 +10,8 @@
 2、支持正常的Xposed框架
 
 交流联系：
-        电报 (用 github 账号 @ 即可）
+        [电报](https://t.me/serven_scorpion)
+        [VX] :carlos_bug_fix
 
 
 请大家给我点一下右上角的 ☆ 15 已正式适配、已经可以支持android16 的大部分机型，感谢
