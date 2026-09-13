@@ -10,7 +10,7 @@
 2、支持正常的Xposed框架
 
 交流联系：
-        [电报](https://t.me/serven_scorpion)<br>
+        
         [VX] :carlos_bug_fix
 
 
