@@ -12,6 +12,7 @@
 交流联系：
         
         [VX] :carlos_bug_fix
+        [TG] :https://t.me/serven_scorpion
 
 
-请大家给我点一下右上角的 ☆ 16 已正式适配，感谢
+请大家给我点一下右上角的 ☆ 17 已正式适配，感谢
